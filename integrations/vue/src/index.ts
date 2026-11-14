@@ -14,7 +14,7 @@
  *   // any component: useHead({ link: markdownAlternateLinks(route.path) })
  */
 
-import { createAgentHandler, discoveryHeaders, type Bundle, type ServeOptions } from "@ispeakllm/serve";
+import { createAgentHandler, discoveryHeaders, varyWithAccept, type Bundle, type ServeOptions } from "@ispeakllm/serve";
 
 type H3EventLike = { node: { res: { setHeader(k: string, v: string): void; getHeader(k: string): unknown } } };
 
@@ -34,8 +34,7 @@ export function createNitroMiddleware(bundle: Bundle | unknown, opts: NitroOptio
     const res = event.node.res;
     for (const [k, v] of Object.entries(discoveryHeaders(b, new URL(req.url).pathname))) {
       if (k === "vary") {
-        const cur = res.getHeader("vary")?.toString();
-        if (!cur || !/\baccept\b/i.test(cur)) res.setHeader("vary", cur ? `${cur}, Accept` : "Accept");
+        res.setHeader("vary", varyWithAccept(res.getHeader("vary")?.toString()));
       } else res.setHeader(k, v);
     }
     return undefined;

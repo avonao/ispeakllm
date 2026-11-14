@@ -1,0 +1,7 @@
+# New for the IspeakLLM OSS port (no info file in goplainly-v6-2026-11-10-current-dormant/integrations/drupal)
+# SPDX-License-Identifier: MIT
+name: IspeakLLM
+type: module
+description: 'Serves the IspeakLLM bundle: llms.txt, page Markdown, AI Conformance Manifest, policy files and headers.'
+core_version_requirement: ^10 || ^11
+package: Web services

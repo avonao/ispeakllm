@@ -228,6 +228,14 @@ export function createAgentHandler(opts: ServeOptions): AgentHandler {
   };
 }
 
+/** `Vary` with `Accept` added once. Compares comma-separated tokens, so `Accept-Encoding` does not count as `Accept`. */
+export function varyWithAccept(current: string | null | undefined): string {
+  const cur = (current ?? "").trim();
+  if (!cur) return "Accept";
+  const tokens = cur.split(",").map((t) => t.trim().toLowerCase());
+  return tokens.includes("accept") || tokens.includes("*") ? cur : `${cur}, Accept`;
+}
+
 /** Headers to add to a human HTML page: `Link` to its Markdown (when published), `Vary: Accept`, policy headers. */
 export function discoveryHeaders(bundle: Bundle, pathname: string, opts: { linkAlways?: boolean; policy?: PolicySet | null } = {}): Record<string, string> {
   const h: Record<string, string> = { vary: "Accept" };
@@ -244,8 +252,7 @@ export async function decorateHtml(bundle: Bundle, req: Request, res: Response, 
   const h = new Headers(res.headers);
   for (const [k, v] of Object.entries(discoveryHeaders(bundle, new URL(req.url).pathname, opts))) {
     if (k === "vary") {
-      const cur = h.get("vary");
-      if (!cur || !/\baccept\b/i.test(cur)) h.set("vary", cur ? `${cur}, Accept` : "Accept");
+      h.set("vary", varyWithAccept(h.get("vary")));
     } else if (k === "link") h.append("link", v);
     else h.set(k, v);
   }

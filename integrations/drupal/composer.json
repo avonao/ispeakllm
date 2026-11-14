@@ -1,0 +1,18 @@
+{
+    "name": "ispeakllm/drupal",
+    "description": "Drupal module serving an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers).",
+    "type": "drupal-module",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "drupal/core": "^10 || ^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "IspeakLLM\\Core\\": "core/"
+        }
+    },
+    "scripts": {
+        "test": "php tests/conformance.php"
+    }
+}

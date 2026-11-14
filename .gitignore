@@ -6,3 +6,10 @@ dist/
 *.pem
 *.key
 .DS_Store
+__pycache__/
+*.pyc
+vendor/
+.DS_Store
+target/
+bin/
+obj/

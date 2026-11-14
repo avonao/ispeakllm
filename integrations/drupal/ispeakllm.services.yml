@@ -1,0 +1,9 @@
+# New for the IspeakLLM OSS port (no services file in goplainly-v6-2026-11-10-current-dormant/integrations/drupal)
+# SPDX-License-Identifier: MIT
+services:
+  ispeakllm.middleware:
+    class: Drupal\ispeakllm\StackMiddleware\IspeakLLMMiddleware
+    tags:
+      # Above page_cache (200), so agent variants are answered and HTML pages decorated
+      # whether or not the page came from the cache.
+      - { name: http_middleware, priority: 210, responder: true }

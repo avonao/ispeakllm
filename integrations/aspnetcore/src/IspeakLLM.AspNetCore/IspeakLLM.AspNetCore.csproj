@@ -1,0 +1,15 @@
+<!-- New for the IspeakLLM OSS port (project file not present in goplainly-v6-2026-11-10-current-dormant/integrations/aspnetcore) -->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>IspeakLLM.AspNetCore</PackageId>
+    <Version>0.1.0</Version>
+    <Description>Serve an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from an ASP.NET Core app.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

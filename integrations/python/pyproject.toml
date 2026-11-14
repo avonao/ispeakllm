@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ispeakllm-wsgi"
+version = "0.1.0"
+description = "Serve an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from any WSGI app, Django or Flask."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+dependencies = []
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Framework :: Django",
+    "Framework :: Flask",
+    "Programming Language :: Python :: 3",
+]
+
+[project.optional-dependencies]
+django = ["Django>=3.2"]
+flask = ["Flask>=2.0"]
+
+[tool.setuptools]
+packages = ["ispeakllm_wsgi"]

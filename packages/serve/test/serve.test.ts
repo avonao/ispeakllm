@@ -59,6 +59,8 @@ describe("serve", () => {
     expect(r.headers.get("vary")).toMatch(/Accept/);
     const d = await decorateHtml(b, new Request("https://example.com/"), new Response("<p>x</p>", { headers: { "content-type": "text/html", vary: "Cookie" } }));
     expect(d.headers.get("vary")).toBe("Cookie, Accept");
+    const e = await decorateHtml(b, new Request("https://example.com/"), new Response("<p>x</p>", { headers: { "content-type": "text/html", vary: "Accept-Encoding" } }));
+    expect(e.headers.get("vary")).toBe("Accept-Encoding, Accept");
   });
 
   it("converts upstream HTML when no source markdown exists, and says so", async () => {

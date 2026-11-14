@@ -1,0 +1,25 @@
+{
+    "name": "ispeakllm/laravel",
+    "description": "Serve an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from a Laravel app.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/http": "^10.0 || ^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IspeakLLM\\Core\\": "core/",
+            "IspeakLLM\\Laravel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["IspeakLLM\\Laravel\\IspeakLLMServiceProvider"]
+        }
+    },
+    "scripts": {
+        "test": "php tests/conformance.php"
+    }
+}

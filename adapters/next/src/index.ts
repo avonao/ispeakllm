@@ -13,7 +13,7 @@
  * `next` is passed in rather than imported, so this package has no dependency on it.
  */
 
-import { createAgentHandler, discoveryHeaders, type Bundle, type ServeOptions } from "@ispeakllm/serve";
+import { createAgentHandler, discoveryHeaders, varyWithAccept, type Bundle, type ServeOptions } from "@ispeakllm/serve";
 
 type NextResponseLike = { next(init?: { headers?: Headers }): Response & { headers: Headers } };
 
@@ -34,8 +34,7 @@ export function createMiddleware(bundle: Bundle | unknown, opts: MiddlewareOptio
     const pathname = new URL(req.url).pathname;
     for (const [k, v] of Object.entries(discoveryHeaders(b, pathname))) {
       if (k === "vary") {
-        const cur = res.headers.get("vary");
-        if (!cur || !/\baccept\b/i.test(cur)) res.headers.set("vary", cur ? `${cur}, Accept` : "Accept");
+        res.headers.set("vary", varyWithAccept(res.headers.get("vary")));
       } else res.headers.set(k, v);
     }
     return res;

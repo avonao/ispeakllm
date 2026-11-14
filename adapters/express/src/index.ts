@@ -11,7 +11,7 @@
  */
 
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { createAgentHandler, discoveryHeaders, type Bundle, type ServeOptions } from "@ispeakllm/serve";
+import { createAgentHandler, discoveryHeaders, varyWithAccept, type Bundle, type ServeOptions } from "@ispeakllm/serve";
 
 export type ExpressOptions = Omit<ServeOptions, "bundle" | "upstream"> & {
   /** Public origin used to build absolute request URLs (default: from the Host header, http unless `x-forwarded-proto`). */
@@ -64,8 +64,7 @@ export function ispeakllm(bundle: Bundle | unknown, opts: ExpressOptions = {}) {
         for (const [k, v] of Object.entries(discoveryHeaders(b, new URL(request.url).pathname))) {
           if (k === "vary") {
             const cur = res.getHeader("vary");
-            const s = Array.isArray(cur) ? cur.join(", ") : cur?.toString();
-            if (!s || !/\baccept\b/i.test(s)) res.setHeader("vary", s ? `${s}, Accept` : "Accept");
+            res.setHeader("vary", varyWithAccept(Array.isArray(cur) ? cur.join(", ") : cur?.toString()));
           } else res.setHeader(k, v);
         }
         next();
