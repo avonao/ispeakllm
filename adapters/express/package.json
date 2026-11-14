@@ -1,0 +1,12 @@
+{
+  "name": "@ispeakllm/express",
+  "version": "0.1.0",
+  "description": "IspeakLLM middleware for Express and any Node (req, res, next) server",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": { "@ispeakllm/serve": "0.1.0" },
+  "sideEffects": false,
+  "private": true
+}

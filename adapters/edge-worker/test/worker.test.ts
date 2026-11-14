@@ -2,7 +2,7 @@ import { describe, it, expect, vi, afterEach } from "vitest";
 import { makeBundle } from "@ispeakllm/serve";
 import { createWorker } from "../src/index";
 
-const bundle = makeBundle({
+const bundle = await makeBundle({
   files: [
     { path: "/llms.txt", content: "# Acme\n\n> Widgets\n\n## Pages\n\n- [Home](/index.md)\n", contentType: "text/markdown; charset=utf-8" },
     { path: "/index.md", content: "# Home\n\nHello.\n", contentType: "text/markdown; charset=utf-8" },
@@ -43,5 +43,16 @@ describe("edge-worker", () => {
     expect(key).toMatch(/^fetch\/\d{4}-\d{2}-\d{2}\//);
     expect(JSON.parse(line).grade).toBe("unauthenticated");
     expect(line).not.toContain("203.0.113.9");
+  });
+});
+
+// @ts-expect-error plain JS runner
+import { runConformance, BUNDLE, hostResponse } from "../../../conformance/adapter-http/runner.mjs";
+describe("edge-worker conformance", () => {
+  it("passes the full adapter conformance suite", async () => {
+    vi.stubGlobal("fetch", async (req: Request) => hostResponse(new URL(req.url).pathname));
+    const w = createWorker(BUNDLE);
+    const rep = await runConformance((req: Request) => w.fetch(req, {}), { level: "full" });
+    expect(rep.results.filter((r: { ok: boolean }) => !r.ok)).toEqual([]);
   });
 });

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { makeBundle } from "@ispeakllm/serve";
 import { createMiddleware, fileRoute } from "../src/index";
 
-const bundle = makeBundle({
+const bundle = await makeBundle({
   files: [
     { path: "/llms.txt", content: "# Acme\n", contentType: "text/markdown; charset=utf-8" },
     { path: "/docs.md", content: "# Docs\n\nRead me.\n", contentType: "text/markdown; charset=utf-8" },
@@ -26,5 +26,16 @@ describe("next adapter", () => {
   it("fileRoute serves one file", async () => {
     const r = await fileRoute(bundle, "/llms.txt")(new Request("https://x/llms.txt"));
     expect(await r.text()).toBe("# Acme\n");
+  });
+});
+
+// @ts-expect-error plain JS runner
+import { runConformance, BUNDLE, HOST_BODY } from "../../../conformance/adapter-http/runner.mjs";
+describe("next conformance", () => {
+  it("passes the full adapter conformance suite", async () => {
+    // NextResponse.next() continues to the app; emulate the app answering with the host page.
+    const mw = createMiddleware(BUNDLE, { NextResponse: { next: () => new Response(HOST_BODY, { headers: { "content-type": "text/html; charset=utf-8" } }) as Response & { headers: Headers } } });
+    const rep = await runConformance(async (req: Request) => (await mw(req))!, { level: "full" });
+    expect(rep.results.filter((r: { ok: boolean }) => !r.ok)).toEqual([]);
   });
 });

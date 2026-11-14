@@ -17,7 +17,7 @@ async function bundle(): Promise<Bundle> {
     ...set.artifacts.map((a) => ({ path: a.path, content: a.body, contentType: a.contentType })),
     { path: "/.well-known/ai-conformance.json", content: '{"spec_version":"1"}', contentType: "application/ai-conformance+json" },
   ];
-  return makeBundle({
+  return await makeBundle({
     files,
     corpus: { siteName: "Acme", pages: out.pages.map((p) => ({ path: p.path, title: p.path, md: p.md })) },
     origin: "https://example.com",

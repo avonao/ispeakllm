@@ -11,7 +11,7 @@
  * Human HTML is never changed beyond adding `Link`, `Vary` and policy headers.
  */
 
-import { negotiate, markdownHeaders, handleConditional, linkHeaderValue, sha256Hex, estimateTokens } from "@ispeakllm/core";
+import { negotiate, markdownHeaders, handleConditional, linkHeaderValue, sha256Hex, estimateTokens, etag } from "@ispeakllm/core";
 import { renderPolicySet, type PolicySet } from "@ispeakllm/policy";
 import { createMcpHandler, serverCard, type McpCorpus } from "@ispeakllm/mcp";
 import { convertHtml } from "@ispeakllm/html-md";
@@ -19,7 +19,14 @@ import { buildFetchRecord, gradeRequest, messageFromRequest, matchAgentByUserAge
 
 export const BUNDLE_VERSION = 1 as const;
 
-export type BundleFile = { type: string; body: string };
+export type BundleFile = {
+  type: string;
+  body: string;
+  /** Strong ETag of `body` (quoted, first 32 hex of SHA-256). Precomputed so every port answers 304 the same way. */
+  etag?: string;
+  /** `x-markdown-tokens` value: ceil(UTF-8 bytes / 4). */
+  tokens?: number;
+};
 export type Bundle = {
   version: typeof BUNDLE_VERSION;
   generatedAt: string;
@@ -30,6 +37,11 @@ export type Bundle = {
   corpus: McpCorpus;
   /** The policy declaration, so per-path headers follow the same longest-prefix rule. */
   declaration?: unknown;
+  /**
+   * Policy response headers precomputed per scope: `"/"` (root) and each declared path prefix.
+   * A port picks the longest key that prefixes the request path. Keys are lower-case header names.
+   */
+  pathHeaders?: Record<string, Record<string, string>>;
 };
 
 export type FetchEvent = {
@@ -123,7 +135,10 @@ export function createAgentHandler(opts: ServeOptions): AgentHandler {
     const h = new Headers({ ...base, ...extra });
     withPolicy(h, set, path);
     const cond = handleConditional(req.headers, base.ETag!);
-    if (cond) return new Response(null, { status: 304, headers: new Headers({ ...cond.headers, ...Object.fromEntries(h) }) });
+    if (cond) {
+      for (const [k, v] of Object.entries(cond.headers)) h.set(k, v);
+      return new Response(null, { status: 304, headers: h });
+    }
     return new Response(req.method === "HEAD" ? null : body, { status: 200, headers: h });
   };
 
@@ -238,10 +253,35 @@ export async function decorateHtml(bundle: Bundle, req: Request, res: Response, 
 }
 
 /** Build a bundle from already-generated files (the CLI uses this). */
-export function makeBundle(input: { files: { path: string; content: string; contentType: string }[]; corpus: McpCorpus; origin?: string; declaration?: unknown; generatedAt: string }): Bundle {
+export async function makeBundle(input: { files: { path: string; content: string; contentType: string }[]; corpus: McpCorpus; origin?: string; declaration?: unknown; generatedAt: string }): Promise<Bundle> {
   const files: Record<string, BundleFile> = {};
-  for (const f of input.files) files[f.path] = { type: f.contentType, body: f.content };
-  return { version: BUNDLE_VERSION, generatedAt: input.generatedAt, origin: input.origin, files, corpus: input.corpus, ...(input.declaration ? { declaration: input.declaration } : {}) };
+  for (const f of input.files) {
+    const isMd = f.contentType.startsWith("text/markdown");
+    files[f.path] = { type: f.contentType, body: f.content, etag: await etag(f.content), ...(isMd ? { tokens: estimateTokens(f.content) } : {}) };
+  }
+  let pathHeaders: Record<string, Record<string, string>> | undefined;
+  if (input.declaration) {
+    const set = renderPolicySet(input.declaration, input.origin ? { origin: input.origin } : {});
+    const lower = (h: Record<string, string | undefined>) => Object.fromEntries(Object.entries(h).filter(([, v]) => v).map(([k, v]) => [k.toLowerCase(), v!]));
+    pathHeaders = { "/": lower(set.headersFor("/")) };
+    for (const p of set.declaration.paths) pathHeaders[p.pattern] = lower(set.headersFor(p.pattern));
+  }
+  return {
+    version: BUNDLE_VERSION,
+    generatedAt: input.generatedAt,
+    ...(input.origin ? { origin: input.origin } : {}),
+    files,
+    corpus: input.corpus,
+    ...(input.declaration ? { declaration: input.declaration, pathHeaders } : {}),
+  };
+}
+
+/** Longest-prefix lookup in `bundle.pathHeaders` (what non-JS ports implement). */
+export function pathHeadersFor(bundle: Bundle, pathname: string): Record<string, string> {
+  if (!bundle.pathHeaders) return {};
+  let best = "/";
+  for (const k of Object.keys(bundle.pathHeaders)) if (pathname.startsWith(k) && k.length > best.length) best = k;
+  return bundle.pathHeaders[best] ?? {};
 }
 
 export { estimateTokens };

@@ -194,7 +194,7 @@ export async function buildSite(io: Io, cfg: Config): Promise<GenerateResult> {
     policy: policyHeaders,
     manifest: acm,
   };
-  const bundle = makeBundle({
+  const bundle = await makeBundle({
     files: served,
     corpus,
     origin: cfg.origin?.replace(/\/+$/, ""),

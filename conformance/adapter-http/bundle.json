@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-14T00:00:00.000Z",
+  "origin": "https://acme.example",
+  "files": {
+    "/llms.txt": {
+      "type": "text/markdown; charset=utf-8",
+      "body": "# Acme Widgets\n\n> Acme makes small, reliable widgets and documents how to use them.\n\n## Docs\n\n- [Quickstart](https://acme.example/docs/quickstart.md): Install a widget in five minutes.\n\n## Company\n\n- [Acme Widgets](https://acme.example/index.md): What Acme makes and where to start.\n\n## Optional\n\n- [Pricing](https://acme.example/pricing.md): One price per widget, no subscription.\n",
+      "etag": "\"28308a5ebbc19299d895cceb4c97a960\"",
+      "tokens": 96
+    },
+    "/llms-full.txt": {
+      "type": "text/markdown; charset=utf-8",
+      "body": "# Acme Widgets\n\n> Acme makes small, reliable widgets and documents how to use them.\n\n# Quickstart\n> Install a widget in five minutes.\n\n# Quickstart\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n\n---\n\n# Acme Widgets\n> What Acme makes and where to start.\n\n# Acme Widgets\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n\n---\n\n# Pricing\n> One price per widget, no subscription.\n\n# Pricing\n\nEach widget costs 5 euros. There is no subscription.\n",
+      "etag": "\"7bfdfc19085d69bb104d098ab7635c66\"",
+      "tokens": 126
+    },
+    "/docs/quickstart.md": {
+      "type": "text/markdown; charset=utf-8",
+      "body": "# Quickstart\n> Install a widget in five minutes.\n\n# Quickstart\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n",
+      "etag": "\"9bddfd0ecd4d586d99ba337c162bf8cf\"",
+      "tokens": 34
+    },
+    "/index.md": {
+      "type": "text/markdown; charset=utf-8",
+      "body": "# Acme Widgets\n> What Acme makes and where to start.\n\n# Acme Widgets\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n",
+      "etag": "\"73d4c550394b1b8377e841c425fa9cc9\"",
+      "tokens": 39
+    },
+    "/pricing.md": {
+      "type": "text/markdown; charset=utf-8",
+      "body": "# Pricing\n> One price per widget, no subscription.\n\n# Pricing\n\nEach widget costs 5 euros. There is no subscription.\n",
+      "etag": "\"92ae285c5d6e16ac8cdf93e022817c69\"",
+      "tokens": 29
+    },
+    "/robots.txt": {
+      "type": "text/plain; charset=utf-8",
+      "body": "# AI usage policy for acme.example (declaration version 1)\n# A statement of preference, not an enforcement mechanism: it blocks nothing.\n# The absence of a rule below is not a grant of any use.\n\nUser-Agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\nContent-Usage: train-ai=n, search=y\nContent-Usage: /docs/ train-ai=y, search=y\n\nUser-Agent: __usage_ai-training\nDisallow: /\nAllow: /docs/\n\n# OpenAI: train\nUser-agent: GPTBot\nDisallow: /\nAllow: /docs/\n\n# Anthropic: train\nUser-agent: ClaudeBot\nDisallow: /\nAllow: /docs/\n\n# Google: train\nUser-agent: Google-Extended\nDisallow: /\nAllow: /docs/\n\n# Common Crawl: train\nUser-agent: CCBot\nDisallow: /\nAllow: /docs/\n\n# Apple: train\nUser-agent: Applebot-Extended\nDisallow: /\nAllow: /docs/\n\n# ByteDance: train\nUser-agent: Bytespider\nDisallow: /\nAllow: /docs/\n\n# Meta: train\nUser-agent: meta-externalagent\nDisallow: /\nAllow: /docs/\n\nLicense: https://acme.example/license.xml\n",
+      "etag": "\"20cdcbdecf3cffa9d2d0eabd49bb487b\""
+    },
+    "/license.xml": {
+      "type": "application/rsl+xml; charset=utf-8",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!-- Derived from the AI usage declaration for acme.example (version 1). Where RSL has no faithful term the declaration governs; silence is not a grant. -->\n<rsl xmlns=\"https://rslstandard.org/rsl\">\n  <content url=\"https://acme.example/*\">\n    <license>\n      <permits type=\"usage\">search,ai-input</permits>\n      <prohibits type=\"usage\">ai-train</prohibits>\n    </license>\n  </content>\n  <content url=\"https://acme.example/docs/*\">\n    <license>\n      <permits type=\"usage\">all</permits>\n    </license>\n  </content>\n</rsl>\n",
+      "etag": "\"b27e9c036a4d34d6a253c820ddada4ae\""
+    },
+    "/ai.txt": {
+      "type": "text/plain; charset=utf-8",
+      "body": "# ai.txt for acme.example\n# Declaration version 1\n# This file states preferences. It does not block anything.\n# Subjects not listed are not stated: silence is not permission.\n\nDomain: acme.example\nContact: mailto:web@acme.example\n\nScope: /\nAllow-Use: index, infer, quote\nDisallow-Use: train\nContent-Signal: search=yes, ai-input=yes, ai-train=no\nContent-Usage: train-ai=n, search=y\nTDM-Reservation: 1\n\nScope: /docs/\nAllow-Use: index, infer, quote, train\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nContent-Usage: train-ai=y, search=y\nTDM-Reservation: 0\n",
+      "etag": "\"56ab6e7a763a5eb88e82548b6e4cfc88\""
+    },
+    "/.well-known/tdmrep.json": {
+      "type": "application/json",
+      "body": "[\n  {\n    \"location\": \"/docs/*\",\n    \"tdm-reservation\": 0\n  },\n  {\n    \"location\": \"/*\",\n    \"tdm-reservation\": 1\n  }\n]\n",
+      "etag": "\"fc7d1bd5bce2838170a2d94c3808899c\""
+    },
+    "/.well-known/ai-conformance.json": {
+      "type": "application/ai-conformance+json",
+      "body": "{\n  \"spec_version\": \"1.0\",\n  \"domain\": \"acme.example\",\n  \"issued_at\": \"2026-11-14T00:00:00.000Z\",\n  \"content_source\": \"source-connected\",\n  \"issuer\": {\n    \"name\": \"Acme Widgets Ltd\",\n    \"contact\": \"mailto:web@acme.example\"\n  },\n  \"ai_disclosure\": {\n    \"systems\": []\n  },\n  \"content_map\": {\n    \"pages\": [\n      {\n        \"path\": \"/docs/quickstart\",\n        \"title\": \"Quickstart\",\n        \"summary\": \"Install a widget in five minutes.\",\n        \"section\": \"docs\",\n        \"md_url\": \"https://acme.example/docs/quickstart.md\",\n        \"content_hash\": \"9bddfd0ecd4d586d99ba337c162bf8cf1a1970cd48cd230c30569d72ed90dcac\"\n      },\n      {\n        \"path\": \"/\",\n        \"title\": \"Acme Widgets\",\n        \"summary\": \"What Acme makes and where to start.\",\n        \"section\": \"company\",\n        \"md_url\": \"https://acme.example/index.md\",\n        \"content_hash\": \"73d4c550394b1b8377e841c425fa9cc943dac09adf0d26c2e4e88b7203ae2eb6\"\n      },\n      {\n        \"path\": \"/pricing\",\n        \"title\": \"Pricing\",\n        \"summary\": \"One price per widget, no subscription.\",\n        \"section\": \"company\",\n        \"md_url\": \"https://acme.example/pricing.md\",\n        \"content_hash\": \"92ae285c5d6e16ac8cdf93e022817c69e153293f4eb5c41825b26f74fe2bba42\"\n      }\n    ]\n  }\n}\n",
+      "etag": "\"680985c094eb3a0914065d8c84cdbbb8\""
+    }
+  },
+  "corpus": {
+    "siteName": "Acme Widgets",
+    "pages": [
+      {
+        "path": "/docs/quickstart",
+        "title": "Quickstart",
+        "md": "# Quickstart\n> Install a widget in five minutes.\n\n# Quickstart\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n"
+      },
+      {
+        "path": "/",
+        "title": "Acme Widgets",
+        "md": "# Acme Widgets\n> What Acme makes and where to start.\n\n# Acme Widgets\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n"
+      },
+      {
+        "path": "/pricing",
+        "title": "Pricing",
+        "md": "# Pricing\n> One price per widget, no subscription.\n\n# Pricing\n\nEach widget costs 5 euros. There is no subscription.\n"
+      }
+    ],
+    "policy": {
+      "Content-Signal": "search=yes, ai-input=yes, ai-train=no",
+      "Content-Usage": "train-ai=n, search=y",
+      "tdm-reservation": "1"
+    },
+    "manifest": {
+      "spec_version": "1.0",
+      "domain": "acme.example",
+      "issued_at": "2026-11-14T00:00:00.000Z",
+      "content_source": "source-connected",
+      "issuer": {
+        "name": "Acme Widgets Ltd",
+        "contact": "mailto:web@acme.example"
+      },
+      "ai_disclosure": {
+        "systems": []
+      },
+      "content_map": {
+        "pages": [
+          {
+            "path": "/docs/quickstart",
+            "title": "Quickstart",
+            "summary": "Install a widget in five minutes.",
+            "section": "docs",
+            "md_url": "https://acme.example/docs/quickstart.md",
+            "content_hash": "9bddfd0ecd4d586d99ba337c162bf8cf1a1970cd48cd230c30569d72ed90dcac"
+          },
+          {
+            "path": "/",
+            "title": "Acme Widgets",
+            "summary": "What Acme makes and where to start.",
+            "section": "company",
+            "md_url": "https://acme.example/index.md",
+            "content_hash": "73d4c550394b1b8377e841c425fa9cc943dac09adf0d26c2e4e88b7203ae2eb6"
+          },
+          {
+            "path": "/pricing",
+            "title": "Pricing",
+            "summary": "One price per widget, no subscription.",
+            "section": "company",
+            "md_url": "https://acme.example/pricing.md",
+            "content_hash": "92ae285c5d6e16ac8cdf93e022817c69e153293f4eb5c41825b26f74fe2bba42"
+          }
+        ]
+      }
+    }
+  },
+  "declaration": {
+    "domain": "acme.example",
+    "version": 1,
+    "defaults": [
+      {
+        "subject": "index",
+        "stance": "allow"
+      },
+      {
+        "subject": "infer",
+        "stance": "allow"
+      },
+      {
+        "subject": "quote",
+        "stance": "allow"
+      },
+      {
+        "subject": "train",
+        "stance": "deny"
+      }
+    ],
+    "paths": [
+      {
+        "pattern": "/docs/",
+        "directives": [
+          {
+            "subject": "train",
+            "stance": "allow"
+          }
+        ]
+      }
+    ],
+    "contact": "mailto:web@acme.example"
+  },
+  "pathHeaders": {
+    "/": {
+      "content-signal": "search=yes, ai-input=yes, ai-train=no",
+      "content-usage": "train-ai=n, search=y",
+      "tdm-reservation": "1"
+    },
+    "/docs/": {
+      "content-signal": "search=yes, ai-input=yes, ai-train=yes",
+      "content-usage": "train-ai=y, search=y",
+      "tdm-reservation": "0"
+    }
+  }
+}
