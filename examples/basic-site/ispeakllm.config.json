@@ -1,0 +1,13 @@
+{
+  "title": "Acme Widgets",
+  "summary": "Acme makes small, reliable widgets and documents how to use them.",
+  "origin": "https://acme.example",
+  "content": "content",
+  "out": "public",
+  "policy": "declaration.json",
+  "issuer": { "name": "Acme Widgets Ltd", "contact": "mailto:web@acme.example" },
+  "sections": [
+    { "id": "docs", "title": "Docs" },
+    { "id": "company", "title": "Company" }
+  ]
+}

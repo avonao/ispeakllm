@@ -1,0 +1,16 @@
+# Copy to wrangler.toml and fill in. Nothing here is deployed until you run `wrangler deploy` yourself.
+name = "ispeakllm"
+main = "worker.ts"
+compatibility_date = "2026-11-01"
+
+# Put the Worker in front of your site (example; set your own zone and pattern):
+# routes = [{ pattern = "example.com/*", zone_name = "example.com" }]
+
+[vars]
+# Leave unset to pass human traffic through to the zone's own origin.
+# ISPEAKLLM_UPSTREAM = "https://origin.example.com"
+
+# Optional graded fetch log. Set the salt as a secret: `wrangler secret put ISPEAKLLM_IP_SALT`
+# [[kv_namespaces]]
+# binding = "FETCH_LOG"
+# id = "<your KV namespace id>"

@@ -34,7 +34,7 @@ export function searchPages(corpus: McpCorpus, query: string, limit = 5): { path
     let score = 0;
     for (const w of q) { score += 3 * tTok.filter((x) => x === w).length; score += bTok.filter((x) => x === w).length; }
     if (!score) continue;
-    const low = p.md.toLowerCase(); const idx = low.indexOf(q[0]);
+    const low = p.md.toLowerCase(); const idx = low.indexOf(q[0] ?? "");
     const start = Math.max(0, idx < 0 ? 0 : idx - 60);
     res.push({ path: p.path, title: p.title, score, snippet: p.md.slice(start, start + 200).replace(/\s+/g, " ").trim() });
   }

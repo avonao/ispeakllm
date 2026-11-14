@@ -24,10 +24,12 @@ import { generateKeyPair, exportKeyPair, toPublicJwk, buildJwks, signManifest, s
 import { lintLlmsTxt, checkReadiness, type Fetcher } from "@ispeakllm/lint";
 import { renderPolicySet } from "@ispeakllm/policy";
 import type { McpCorpus } from "@ispeakllm/mcp";
+import { makeBundle } from "@ispeakllm/serve";
 
 export const VERSION = "0.1.0";
 export const CONFIG_FILE = "ispeakllm.config.json";
 export const DEFAULT_KEY_FILE = ".ispeakllm/signing-key.json";
+export const DEFAULT_BUNDLE_FILE = ".ispeakllm/bundle.json";
 
 export type Config = {
   title: string;
@@ -45,6 +47,8 @@ export type Config = {
   /** Private signing key (JWK). Default `.ispeakllm/signing-key.json`; signing is skipped when absent. */
   key?: string;
   sections?: { id: string; title: string; priority?: number }[];
+  /** Where the adapter bundle is written (default `.ispeakllm/bundle.json`). */
+  bundle?: string;
 };
 
 export type Io = {
@@ -134,26 +138,33 @@ export async function buildSite(io: Io, cfg: Config): Promise<GenerateResult> {
     summary: cfg.summary,
     details: cfg.details,
     origin: cfg.origin?.replace(/\/+$/, ""),
-    sections: cfg.sections?.map((s, i) => ({ id: s.id, title: s.title, priority: s.priority ?? i })),
+    sections: cfg.sections?.map((s, i, all) => ({ id: s.id, title: s.title, priority: s.priority ?? all.length - i })), // config order = output order
   });
   const written: string[] = [];
-  for (const f of toFiles(outputs)) written.push(await writeOut(outDir, f.path, f.content));
+  const served: { path: string; content: string; contentType: string }[] = [];
+  const put = async (sitePath: string, content: string, contentType: string): Promise<void> => {
+    written.push(await writeOut(outDir, sitePath, content));
+    served.push({ path: sitePath, content, contentType });
+  };
+  for (const f of toFiles(outputs)) await put(f.path, f.content, f.contentType);
 
   let policyHeaders: Record<string, string> | undefined;
+  let declaration: unknown;
   if (cfg.policy) {
-    const set = renderPolicySet(await readJson(resolve(io.cwd, cfg.policy)), cfg.origin ? { origin: cfg.origin } : {});
+    declaration = await readJson(resolve(io.cwd, cfg.policy));
+    const set = renderPolicySet(declaration, cfg.origin ? { origin: cfg.origin } : {});
     for (const a of set.artifacts) {
       // Never overwrite a robots.txt the site already has: write the block beside it to merge.
       const robotsPath = join(outDir, "robots.txt");
       if (a.path === "/robots.txt" && existsSync(robotsPath) && !(await readFile(robotsPath, "utf8")).includes("# AI usage policy for")) {
         written.push(await writeOut(outDir, "/robots.ispeakllm.txt", a.body));
+        served.push({ path: "/robots.txt", content: a.body, contentType: a.contentType });
         io.out("note: public robots.txt exists; the policy block is in robots.ispeakllm.txt for you to merge.");
         continue;
       }
-      written.push(await writeOut(outDir, a.path, a.body));
+      await put(a.path, a.body, a.contentType);
     }
     policyHeaders = { ...set.headers } as Record<string, string>;
-    written.push(await writeOut(outDir, "/.well-known/ispeakllm-headers.json", JSON.stringify(set.headers, null, 2) + "\n"));
     for (const n of set.notes) io.out(`note: ${n}`);
   }
 
@@ -173,9 +184,9 @@ export async function buildSite(io: Io, cfg: Config): Promise<GenerateResult> {
     const key = await readJson<Jwk>(keyPath);
     acm = await signManifest(acm, key, { signedAt: (io.now?.() ?? new Date()).toISOString() });
     signed = true;
-    written.push(await writeOut(outDir, "/.well-known/jwks.json", JSON.stringify(await buildJwks([toPublicJwk(key)]), null, 2) + "\n"));
+    await put("/.well-known/jwks.json", JSON.stringify(await buildJwks([toPublicJwk(key)]), null, 2) + "\n", "application/jwk-set+json");
   }
-  written.push(await writeOut(outDir, "/.well-known/ai-conformance.json", JSON.stringify(acm, null, 2) + "\n"));
+  await put("/.well-known/ai-conformance.json", JSON.stringify(acm, null, 2) + "\n", "application/ai-conformance+json");
 
   const corpus: McpCorpus = {
     siteName: cfg.title,
@@ -183,7 +194,17 @@ export async function buildSite(io: Io, cfg: Config): Promise<GenerateResult> {
     policy: policyHeaders,
     manifest: acm,
   };
-  written.push(await writeOut(outDir, "/.well-known/ispeakllm-corpus.json", JSON.stringify(corpus) + "\n"));
+  const bundle = makeBundle({
+    files: served,
+    corpus,
+    origin: cfg.origin?.replace(/\/+$/, ""),
+    declaration,
+    generatedAt: (io.now?.() ?? new Date()).toISOString(),
+  });
+  const bundlePath = resolve(io.cwd, cfg.bundle ?? DEFAULT_BUNDLE_FILE);
+  await mkdir(dirname(bundlePath), { recursive: true });
+  await writeFile(bundlePath, JSON.stringify(bundle) + "\n");
+  written.push(bundlePath);
   return { outputs, written, signed, corpus };
 }
 
@@ -353,12 +374,12 @@ export function createStaticHandler(outDir: string, opts: { origin?: string } = 
       const headers = await markdownHeaders(text);
       const cond = handleConditional(req.headers, headers.ETag!);
       if (cond) return new Response(null, { status: 304, headers: cond.headers });
-      return new Response(req.method === "HEAD" ? null : body, { headers });
+      return new Response(req.method === "HEAD" ? null : (body as BodyInit), { headers });
     }
     const headers: Record<string, string> = { "Content-Type": TYPES[ext] ?? "application/octet-stream", Vary: "Accept" };
     if (v.variant === "acm") headers["Content-Type"] = "application/ai-conformance+json";
     if (ext === ".html" || ext === "") headers.Link = linkHeaderValue({ pathname: url.pathname, origin: opts.origin });
-    return new Response(req.method === "HEAD" ? null : body, { headers });
+    return new Response(req.method === "HEAD" ? null : (body as BodyInit), { headers });
   };
 }
 

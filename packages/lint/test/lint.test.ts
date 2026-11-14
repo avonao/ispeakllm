@@ -40,7 +40,7 @@ describe("checkReadiness", () => {
     expect(r.passed).toBeGreaterThan(5);
   });
   it("fails negotiation on a plain site", async () => {
-    const plain: Fetcher = async (u) => (new URL(u).pathname === "/" ? { status: 200, headers: { "content-type": "text/html" }, body: "" } : { status: 404, headers: {}, body: "" });
+    const plain: Fetcher = async (u) => (new URL(u).pathname === "/" ? { status: 200, headers: { "content-type": "text/html" }, body: "" } : { status: 404, headers: {} as Record<string, string>, body: "" });
     const r = await checkReadiness("https://x.com", plain);
     expect(r.items.find((i) => i.id === "md-negotiation")?.status).toBe("fail");
   });

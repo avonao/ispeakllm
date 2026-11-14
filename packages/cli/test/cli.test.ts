@@ -71,8 +71,10 @@ describe("cli", () => {
     expect(await readFile(join(dir, "public", "robots.txt"), "utf8")).toBe("User-agent: *\nAllow: /\n");
     expect(await readFile(join(dir, "public", "robots.ispeakllm.txt"), "utf8")).toContain("Content-Signal");
     expect(await readFile(join(dir, "public", "ai.txt"), "utf8")).toBeTruthy();
-    const corpus = JSON.parse(await readFile(join(dir, "public", ".well-known", "ispeakllm-corpus.json"), "utf8"));
-    expect(corpus.policy["Content-Signal"]).toMatch(/ai-train=no/);
+    const bundle = JSON.parse(await readFile(join(dir, ".ispeakllm", "bundle.json"), "utf8"));
+    expect(bundle.corpus.policy["Content-Signal"]).toMatch(/ai-train=no/);
+    expect(bundle.files["/robots.txt"].body).toContain("Content-Signal");
+    expect(bundle.declaration.domain).toBe("example.com");
   });
 
   it("lint reports errors with exit 1; unknown command exits 2", async () => {

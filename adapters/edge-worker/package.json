@@ -1,0 +1,12 @@
+{
+  "name": "@ispeakllm/edge-worker",
+  "version": "0.1.0",
+  "description": "IspeakLLM as a Cloudflare Worker in front of any site: llms.txt, Markdown negotiation, ACM, policy, MCP, graded fetch log",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": { "@ispeakllm/serve": "0.1.0", "@ispeakllm/agents": "0.1.0" },
+  "sideEffects": false,
+  "private": true
+}

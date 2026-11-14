@@ -1,0 +1,14 @@
+{
+  "name": "@ispeakllm/next",
+  "version": "0.1.0",
+  "description": "IspeakLLM for Next.js: middleware that answers agents with Markdown, llms.txt, ACM, policy and MCP",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": { "@ispeakllm/serve": "0.1.0" },
+  "peerDependencies": { "next": ">=14" },
+  "peerDependenciesMeta": { "next": { "optional": true } },
+  "sideEffects": false,
+  "private": true
+}

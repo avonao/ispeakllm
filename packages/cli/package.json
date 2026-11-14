@@ -8,14 +8,15 @@
   "types": "./src/index.ts",
   "bin": { "ispeakllm": "./dist/ispeakllm.mjs" },
   "scripts": {
-    "build": "esbuild src/bin.ts --bundle --platform=node --format=esm --target=node20 --outfile=dist/ispeakllm.mjs --alias:@ispeakllm/core=../core/src/index.ts --alias:@ispeakllm/sign=../sign/src/index.ts --alias:@ispeakllm/lint=../lint/src/index.ts --alias:@ispeakllm/policy=../policy/src/index.ts --alias:@ispeakllm/mcp=../mcp/src/index.ts"
+    "build": "esbuild src/bin.ts --bundle --platform=node --format=esm --target=node20 --outfile=dist/ispeakllm.mjs --alias:@ispeakllm/core=../core/src/index.ts --alias:@ispeakllm/sign=../sign/src/index.ts --alias:@ispeakllm/lint=../lint/src/index.ts --alias:@ispeakllm/policy=../policy/src/index.ts --alias:@ispeakllm/mcp=../mcp/src/index.ts --alias:@ispeakllm/serve=../serve/src/index.ts --alias:@ispeakllm/agents=../agents/src/index.ts --alias:@ispeakllm/html-md=../html-md/src/index.ts"
   },
   "dependencies": {
     "@ispeakllm/core": "0.1.0",
     "@ispeakllm/sign": "0.1.0",
     "@ispeakllm/lint": "0.1.0",
     "@ispeakllm/policy": "0.1.0",
-    "@ispeakllm/mcp": "0.1.0"
+    "@ispeakllm/mcp": "0.1.0",
+    "@ispeakllm/serve": "0.1.0"
   },
   "files": ["dist", "src"],
   "sideEffects": false,
