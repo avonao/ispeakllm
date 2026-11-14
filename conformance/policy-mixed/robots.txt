@@ -1,0 +1,74 @@
+# AI usage policy for mixed.example (declaration version 3, emd_Nxs1kQ6QYxVhZquWYfXkEqansgdJD4jU5VwO1hQNXLo)
+# A statement of preference, not an enforcement mechanism: it blocks nothing.
+# The absence of a rule below is not a grant of any use.
+
+User-Agent: *
+Content-Signal: search=no, ai-input=no, ai-train=no
+Content-Usage: train-ai=n, ai-use=n, search=y
+Content-Usage: /blog/ train-ai=y, search=y
+Content-Usage: /members/ train-ai=n, ai-use=n, search=n
+
+User-Agent: __usage_ai-training
+Disallow: /
+Allow: /blog/
+
+# OpenAI: train
+User-agent: GPTBot
+Disallow: /
+Allow: /blog/
+
+# OpenAI: index
+User-agent: OAI-SearchBot
+Disallow: /members/
+
+# OpenAI: infer (user-triggered fetches may not follow robots.txt)
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic: train
+User-agent: ClaudeBot
+Disallow: /
+Allow: /blog/
+
+# Anthropic: index
+User-agent: Claude-SearchBot
+Disallow: /members/
+
+# Anthropic: infer (user-triggered fetches may not follow robots.txt)
+User-agent: Claude-User
+Disallow: /
+
+# Google: train
+User-agent: Google-Extended
+Disallow: /
+Allow: /blog/
+
+# Perplexity: index
+User-agent: PerplexityBot
+Disallow: /members/
+
+# Common Crawl: train
+User-agent: CCBot
+Disallow: /
+Allow: /blog/
+
+# Apple: train
+User-agent: Applebot-Extended
+Disallow: /
+Allow: /blog/
+
+# ByteDance: train
+User-agent: Bytespider
+Disallow: /
+Allow: /blog/
+
+# Meta: train
+User-agent: meta-externalagent
+Disallow: /
+Allow: /blog/
+
+# Per-agent override
+User-agent: ExampleBot
+Disallow: /
+
+License: https://mixed.example/license.xml

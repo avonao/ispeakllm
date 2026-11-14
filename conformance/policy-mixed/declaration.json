@@ -1,0 +1,23 @@
+{
+  "domain": "mixed.example",
+  "version": 3,
+  "publishedAt": "2026-11-03T00:00:00.000Z",
+  "defaults": [
+    { "subject": "index", "stance": "allow" },
+    { "subject": "infer", "stance": "conditional", "condition": "attribution required" },
+    { "subject": "quote", "stance": "conditional", "condition": "link back to the source page" },
+    { "subject": "embed", "stance": "deny" },
+    { "subject": "train", "stance": "deny" }
+  ],
+  "paths": [
+    { "pattern": "/blog/", "directives": [{ "subject": "train", "stance": "allow" }, { "subject": "evaluate", "stance": "allow" }] },
+    { "pattern": "/members/", "directives": [{ "subject": "index", "stance": "deny" }] }
+  ],
+  "agents": [
+    { "agent": "GPTBot", "directives": [{ "subject": "index", "stance": "deny" }] },
+    { "agent": "ExampleBot", "directives": [{ "subject": "train", "stance": "deny" }, { "subject": "infer", "stance": "allow" }] }
+  ],
+  "contact": "ai@mixed.example",
+  "licence": "https://mixed.example/terms",
+  "notes": "Conditional uses need written agreement.\nSee the contact address."
+}

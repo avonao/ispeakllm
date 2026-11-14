@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ispeakllm.example/spec/declaration/v1/declaration.schema.json",
+  "title": "AI usage declaration v1",
+  "description": "What a site permits AI systems to do with its content, per subject, per path and per agent. A statement, not an enforcement mechanism.",
+  "type": "object",
+  "required": ["domain", "defaults"],
+  "additionalProperties": false,
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Bare host name (optional :port). Lower-cased in canonical form.",
+      "pattern": "^[A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?(\\.[A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?)*(:[0-9]{1,5})?$"
+    },
+    "version": { "type": "integer", "minimum": 1, "default": 1 },
+    "publishedAt": { "type": ["string", "null"], "format": "date-time" },
+    "defaults": {
+      "description": "Domain-wide stances. At least one directive: a declaration with none states nothing.",
+      "$ref": "#/$defs/directives",
+      "minItems": 1
+    },
+    "paths": {
+      "type": "array",
+      "description": "Per-path overrides. A pattern is a path PREFIX; a trailing * is optional and removed in canonical form. Longer prefixes override shorter ones, per subject.",
+      "items": {
+        "type": "object",
+        "required": ["pattern", "directives"],
+        "additionalProperties": false,
+        "properties": {
+          "pattern": { "type": "string", "pattern": "^/[^\\s#$*?]+\\*?$", "maxLength": 512 },
+          "directives": { "$ref": "#/$defs/directives", "minItems": 1 }
+        }
+      }
+    },
+    "agents": {
+      "type": "array",
+      "description": "Per-agent overrides keyed by robots product token. Restrictive overrides apply to everyone claiming that token; a LOOSENING override applies only to a request whose identity has been verified.",
+      "items": {
+        "type": "object",
+        "required": ["agent", "directives"],
+        "additionalProperties": false,
+        "properties": {
+          "agent": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$" },
+          "directives": { "$ref": "#/$defs/directives", "minItems": 1 }
+        }
+      }
+    },
+    "contact": { "type": ["string", "null"], "maxLength": 500, "pattern": "^[^\\u0000-\\u001f\\u007f]*$" },
+    "licence": { "type": ["string", "null"], "maxLength": 500, "pattern": "^[^\\u0000-\\u001f\\u007f]*$" },
+    "notes": { "type": ["string", "null"], "maxLength": 4000 }
+  },
+  "$defs": {
+    "subject": { "enum": ["index", "infer", "quote", "embed", "train", "evaluate"] },
+    "directives": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/directive" }
+    },
+    "directive": {
+      "type": "object",
+      "required": ["subject", "stance"],
+      "additionalProperties": false,
+      "properties": {
+        "subject": { "$ref": "#/$defs/subject" },
+        "stance": { "enum": ["allow", "deny", "conditional"] },
+        "condition": { "type": "string", "minLength": 1, "maxLength": 500, "pattern": "^[^\\u0000-\\u001f\\u007f]+$" }
+      },
+      "if": { "properties": { "stance": { "const": "conditional" } } },
+      "then": { "required": ["condition"] },
+      "else": { "not": { "required": ["condition"] } }
+    }
+  }
+}

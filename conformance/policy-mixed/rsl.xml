@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Derived from the AI usage declaration for mixed.example (version 3). Where RSL has no faithful term the declaration governs; silence is not a grant. -->
+<rsl xmlns="https://rslstandard.org/rsl">
+  <content url="https://mixed.example/*">
+    <license>
+      <permits type="usage">search</permits>
+      <prohibits type="usage">ai-input,ai-train</prohibits>
+      <!-- infer is conditional (attribution required); RSL cannot carry the condition, so it is not permitted here -->
+      <!-- quote is conditional (link back to the source page); RSL cannot carry the condition, so it is not permitted here -->
+    </license>
+    <terms>https://mixed.example/terms</terms>
+  </content>
+  <content url="https://mixed.example/blog/*">
+    <license>
+      <permits type="usage">search,ai-train</permits>
+      <prohibits type="usage">ai-input</prohibits>
+      <!-- infer is conditional (attribution required); RSL cannot carry the condition, so it is not permitted here -->
+      <!-- quote is conditional (link back to the source page); RSL cannot carry the condition, so it is not permitted here -->
+    </license>
+  </content>
+  <content url="https://mixed.example/members/*">
+    <license>
+      <prohibits type="usage">all</prohibits>
+      <!-- infer is conditional (attribution required); RSL cannot carry the condition, so it is not permitted here -->
+      <!-- quote is conditional (link back to the source page); RSL cannot carry the condition, so it is not permitted here -->
+    </license>
+  </content>
+</rsl>

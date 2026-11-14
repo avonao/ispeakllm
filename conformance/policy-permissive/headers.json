@@ -1,0 +1,17 @@
+{
+  "id": "emd_2NCjUQhi8IdIcxfQielAQIfC1AD7hsXqxgaEqMWGa4k",
+  "headers": {
+    "/": {
+      "Content-Signal": "search=yes, ai-input=yes, ai-train=yes",
+      "Content-Usage": "train-ai=y, ai-use=y, search=y",
+      "tdm-reservation": "0"
+    }
+  },
+  "tdmrep": [
+    {
+      "location": "/*",
+      "tdm-reservation": 0
+    }
+  ],
+  "notes": []
+}

@@ -1,0 +1,12 @@
+# AI usage policy for permissive.example (declaration version 1, emd_2NCjUQhi8IdIcxfQielAQIfC1AD7hsXqxgaEqMWGa4k)
+# A statement of preference, not an enforcement mechanism: it blocks nothing.
+# The absence of a rule below is not a grant of any use.
+
+User-Agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: train-ai=y, ai-use=y, search=y
+
+User-Agent: __usage_ai-training
+Allow: /
+
+License: https://permissive.example/license.xml

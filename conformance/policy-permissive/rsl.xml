@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Derived from the AI usage declaration for permissive.example (version 1). Where RSL has no faithful term the declaration governs; silence is not a grant. -->
+<rsl xmlns="https://rslstandard.org/rsl">
+  <content url="https://permissive.example/*">
+    <license>
+      <permits type="usage">all</permits>
+    </license>
+    <terms>https://permissive.example/license</terms>
+  </content>
+</rsl>

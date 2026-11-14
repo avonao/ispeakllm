@@ -1,0 +1,29 @@
+{
+  "id": "emd_6MZweJ4XnolINNM5KoOKhY2XXZ12U9KBv5XHkWLbXxE",
+  "headers": {
+    "/": {
+      "Content-Signal": "search=no, ai-input=no, ai-train=no",
+      "Content-Usage": "train-ai=n, ai-use=n, search=n",
+      "tdm-reservation": "1"
+    },
+    "/press/": {
+      "Content-Signal": "search=yes, ai-input=no, ai-train=no",
+      "Content-Usage": "train-ai=n, search=y",
+      "tdm-reservation": "1"
+    }
+  },
+  "tdmrep": [
+    {
+      "location": "/press/*",
+      "tdm-reservation": 1
+    },
+    {
+      "location": "/*",
+      "tdm-reservation": 1
+    }
+  ],
+  "notes": [
+    "Agent \"Claude-User\": allow for quote is not written to robots.txt; it applies only to a request whose identity is verified at runtime.",
+    "The robots.txt Content-Signal line has no path syntax, so it carries the most restrictive value over every scope; per-path values travel in the response headers."
+  ]
+}

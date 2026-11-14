@@ -1,0 +1,17 @@
+# ai.txt for permissive.example
+# Declaration version 1 (emd_2NCjUQhi8IdIcxfQielAQIfC1AD7hsXqxgaEqMWGa4k), published 2026-11-01T00:00:00.000Z
+# This file states preferences. It does not block anything.
+# Subjects not listed are not stated: silence is not permission.
+
+Domain: permissive.example
+Declaration: emd_2NCjUQhi8IdIcxfQielAQIfC1AD7hsXqxgaEqMWGa4k
+Contact: ai@permissive.example
+Licence: https://permissive.example/license
+
+Scope: /
+Allow-Use: index, infer, quote, embed, train, evaluate
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Content-Usage: train-ai=y, ai-use=y, search=y
+TDM-Reservation: 0
+
+# Everything is welcome. Please link back.

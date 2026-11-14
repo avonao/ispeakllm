@@ -1,0 +1,38 @@
+# ai.txt for mixed.example
+# Declaration version 3 (emd_Nxs1kQ6QYxVhZquWYfXkEqansgdJD4jU5VwO1hQNXLo), published 2026-11-03T00:00:00.000Z
+# This file states preferences. It does not block anything.
+# Subjects not listed are not stated: silence is not permission.
+
+Domain: mixed.example
+Declaration: emd_Nxs1kQ6QYxVhZquWYfXkEqansgdJD4jU5VwO1hQNXLo
+Contact: ai@mixed.example
+Licence: https://mixed.example/terms
+
+Scope: /
+Allow-Use: index
+Disallow-Use: embed, train
+Conditional-Use: infer: attribution required
+Conditional-Use: quote: link back to the source page
+Content-Signal: search=yes, ai-input=no, ai-train=no
+Content-Usage: train-ai=n, ai-use=n, search=y
+TDM-Reservation: 1
+
+Scope: /blog/
+Allow-Use: index, train, evaluate
+Disallow-Use: embed
+Conditional-Use: infer: attribution required
+Conditional-Use: quote: link back to the source page
+Content-Signal: search=yes, ai-input=no, ai-train=yes
+Content-Usage: train-ai=y, search=y
+TDM-Reservation: 0
+
+Scope: /members/
+Disallow-Use: index, embed, train
+Conditional-Use: infer: attribution required
+Conditional-Use: quote: link back to the source page
+Content-Signal: search=no, ai-input=no, ai-train=no
+Content-Usage: train-ai=n, ai-use=n, search=n
+TDM-Reservation: 1
+
+# Conditional uses need written agreement.
+# See the contact address.

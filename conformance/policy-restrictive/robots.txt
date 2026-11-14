@@ -1,0 +1,64 @@
+# AI usage policy for restrictive.example (declaration version 2, emd_6MZweJ4XnolINNM5KoOKhY2XXZ12U9KBv5XHkWLbXxE)
+# A statement of preference, not an enforcement mechanism: it blocks nothing.
+# The absence of a rule below is not a grant of any use.
+
+User-Agent: *
+Content-Signal: search=no, ai-input=no, ai-train=no
+Content-Usage: train-ai=n, ai-use=n, search=n
+Content-Usage: /press/ train-ai=n, search=y
+
+User-Agent: __usage_ai-training
+Disallow: /
+
+# OpenAI: train
+User-agent: GPTBot
+Disallow: /
+
+# OpenAI: index
+User-agent: OAI-SearchBot
+Disallow: /
+Allow: /press/
+
+# OpenAI: infer (user-triggered fetches may not follow robots.txt)
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic: train
+User-agent: ClaudeBot
+Disallow: /
+
+# Anthropic: index
+User-agent: Claude-SearchBot
+Disallow: /
+Allow: /press/
+
+# Anthropic: infer (user-triggered fetches may not follow robots.txt)
+User-agent: Claude-User
+Disallow: /
+
+# Google: train
+User-agent: Google-Extended
+Disallow: /
+
+# Perplexity: index
+User-agent: PerplexityBot
+Disallow: /
+Allow: /press/
+
+# Common Crawl: train
+User-agent: CCBot
+Disallow: /
+
+# Apple: train
+User-agent: Applebot-Extended
+Disallow: /
+
+# ByteDance: train
+User-agent: Bytespider
+Disallow: /
+
+# Meta: train
+User-agent: meta-externalagent
+Disallow: /
+
+License: https://restrictive.example/license.xml

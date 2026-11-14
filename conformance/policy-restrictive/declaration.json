@@ -1,0 +1,26 @@
+{
+  "domain": "restrictive.example",
+  "version": 2,
+  "publishedAt": "2026-11-02T00:00:00.000Z",
+  "defaults": [
+    { "subject": "index", "stance": "deny" },
+    { "subject": "infer", "stance": "deny" },
+    { "subject": "quote", "stance": "deny" },
+    { "subject": "embed", "stance": "deny" },
+    { "subject": "train", "stance": "deny" },
+    { "subject": "evaluate", "stance": "deny" }
+  ],
+  "paths": [
+    {
+      "pattern": "/press/*",
+      "directives": [
+        { "subject": "index", "stance": "allow" },
+        { "subject": "quote", "stance": "allow" }
+      ]
+    }
+  ],
+  "agents": [
+    { "agent": "Claude-User", "directives": [{ "subject": "quote", "stance": "allow" }] }
+  ],
+  "contact": "legal@restrictive.example"
+}

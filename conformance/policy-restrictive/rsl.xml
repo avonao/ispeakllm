@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Derived from the AI usage declaration for restrictive.example (version 2). Where RSL has no faithful term the declaration governs; silence is not a grant. -->
+<rsl xmlns="https://rslstandard.org/rsl">
+  <content url="https://restrictive.example/*">
+    <license>
+      <prohibits type="usage">all</prohibits>
+    </license>
+  </content>
+  <content url="https://restrictive.example/press/*">
+    <license>
+      <permits type="usage">search</permits>
+      <prohibits type="usage">ai-input,ai-train</prohibits>
+    </license>
+  </content>
+</rsl>

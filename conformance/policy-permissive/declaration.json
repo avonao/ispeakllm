@@ -1,0 +1,16 @@
+{
+  "domain": "permissive.example",
+  "version": 1,
+  "publishedAt": "2026-11-01T00:00:00.000Z",
+  "defaults": [
+    { "subject": "index", "stance": "allow" },
+    { "subject": "infer", "stance": "allow" },
+    { "subject": "quote", "stance": "allow" },
+    { "subject": "embed", "stance": "allow" },
+    { "subject": "train", "stance": "allow" },
+    { "subject": "evaluate", "stance": "allow" }
+  ],
+  "contact": "ai@permissive.example",
+  "licence": "https://permissive.example/license",
+  "notes": "Everything is welcome. Please link back."
+}

@@ -1,0 +1,10 @@
+# IETF AIPREF projections (draft-ietf-aipref-vocab-08, draft-ietf-aipref-attach-05)
+
+## Content-Usage response header, per scope
+/  ->  Content-Usage: train-ai=y, ai-use=y, search=y
+
+## robots.txt rules
+User-Agent: *
+Content-Usage: train-ai=y, ai-use=y, search=y
+User-Agent: __usage_ai-training
+Allow: /

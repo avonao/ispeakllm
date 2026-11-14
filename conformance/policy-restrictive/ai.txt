@@ -1,0 +1,21 @@
+# ai.txt for restrictive.example
+# Declaration version 2 (emd_6MZweJ4XnolINNM5KoOKhY2XXZ12U9KBv5XHkWLbXxE), published 2026-11-02T00:00:00.000Z
+# This file states preferences. It does not block anything.
+# Subjects not listed are not stated: silence is not permission.
+
+Domain: restrictive.example
+Declaration: emd_6MZweJ4XnolINNM5KoOKhY2XXZ12U9KBv5XHkWLbXxE
+Contact: legal@restrictive.example
+
+Scope: /
+Disallow-Use: index, infer, quote, embed, train, evaluate
+Content-Signal: search=no, ai-input=no, ai-train=no
+Content-Usage: train-ai=n, ai-use=n, search=n
+TDM-Reservation: 1
+
+Scope: /press/
+Allow-Use: index, quote
+Disallow-Use: infer, embed, train, evaluate
+Content-Signal: search=yes, ai-input=no, ai-train=no
+Content-Usage: train-ai=n, search=y
+TDM-Reservation: 1
