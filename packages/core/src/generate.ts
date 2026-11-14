@@ -103,11 +103,16 @@ export function mdPathFor(path: string): string {
 }
 
 /** Render one page as the Markdown served at its `.md` URL: `# title`, optional `> summary`, blank line, body. */
+const norm = (t: string): string => oneLine(t).toLowerCase();
+
 export function renderPageMarkdown(content: PageContent): string {
   const head = [`# ${oneLine(content.ref.title)}`];
   if (content.ref.summary) head.push(`> ${oneLine(content.ref.summary)}`);
-  const body = lf(content.body).replace(/^(?:[ \t]*\n)+/, "").replace(/\s+$/, "");
-  return head.join("\n") + "\n\n" + body + "\n";
+  let body = lf(content.body).replace(/^(?:[ \t]*\n)+/, "").replace(/\s+$/, "");
+  // Most sources open with the same H1 the header already carries: drop it so the title appears once.
+  const h1 = /^#[ \t]+(.+?)[ \t#]*(?:\n|$)/.exec(body);
+  if (h1 && norm(h1[1]!) === norm(content.ref.title)) body = body.slice(h1[0].length).replace(/^(?:[ \t]*\n)+/, "");
+  return head.join("\n") + "\n\n" + body + (body ? "\n" : "");
 }
 
 function encodeHref(href: string): string {

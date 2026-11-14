@@ -11,27 +11,27 @@
     },
     "/llms-full.txt": {
       "type": "text/markdown; charset=utf-8",
-      "body": "# Acme Widgets\n\n> Acme makes small, reliable widgets and documents how to use them.\n\n# Quickstart\n> Install a widget in five minutes.\n\n# Quickstart\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n\n---\n\n# Acme Widgets\n> What Acme makes and where to start.\n\n# Acme Widgets\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n\n---\n\n# Pricing\n> One price per widget, no subscription.\n\n# Pricing\n\nEach widget costs 5 euros. There is no subscription.\n",
-      "etag": "\"7bfdfc19085d69bb104d098ab7635c66\"",
-      "tokens": 126
+      "body": "# Acme Widgets\n\n> Acme makes small, reliable widgets and documents how to use them.\n\n# Quickstart\n> Install a widget in five minutes.\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n\n---\n\n# Acme Widgets\n> What Acme makes and where to start.\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n\n---\n\n# Pricing\n> One price per widget, no subscription.\n\nEach widget costs 5 euros. There is no subscription.\n",
+      "etag": "\"78f5c087e88a5dbc8ea90f20f158e1fc\"",
+      "tokens": 116
     },
     "/docs/quickstart.md": {
       "type": "text/markdown; charset=utf-8",
-      "body": "# Quickstart\n> Install a widget in five minutes.\n\n# Quickstart\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n",
-      "etag": "\"9bddfd0ecd4d586d99ba337c162bf8cf\"",
-      "tokens": 34
+      "body": "# Quickstart\n> Install a widget in five minutes.\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n",
+      "etag": "\"cf796c0d0219890e7afef639bbb7b5d9\"",
+      "tokens": 31
     },
     "/index.md": {
       "type": "text/markdown; charset=utf-8",
-      "body": "# Acme Widgets\n> What Acme makes and where to start.\n\n# Acme Widgets\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n",
-      "etag": "\"73d4c550394b1b8377e841c425fa9cc9\"",
-      "tokens": 39
+      "body": "# Acme Widgets\n> What Acme makes and where to start.\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n",
+      "etag": "\"68ac28c7b91ccbfe88ceb05619cf8282\"",
+      "tokens": 35
     },
     "/pricing.md": {
       "type": "text/markdown; charset=utf-8",
-      "body": "# Pricing\n> One price per widget, no subscription.\n\n# Pricing\n\nEach widget costs 5 euros. There is no subscription.\n",
-      "etag": "\"92ae285c5d6e16ac8cdf93e022817c69\"",
-      "tokens": 29
+      "body": "# Pricing\n> One price per widget, no subscription.\n\nEach widget costs 5 euros. There is no subscription.\n",
+      "etag": "\"22c0158f5f59b52b258f28f5d6f70d52\"",
+      "tokens": 27
     },
     "/robots.txt": {
       "type": "text/plain; charset=utf-8",
@@ -55,8 +55,8 @@
     },
     "/.well-known/ai-conformance.json": {
       "type": "application/ai-conformance+json",
-      "body": "{\n  \"spec_version\": \"1.0\",\n  \"domain\": \"acme.example\",\n  \"issued_at\": \"2026-11-14T00:00:00.000Z\",\n  \"content_source\": \"source-connected\",\n  \"issuer\": {\n    \"name\": \"Acme Widgets Ltd\",\n    \"contact\": \"mailto:web@acme.example\"\n  },\n  \"ai_disclosure\": {\n    \"systems\": []\n  },\n  \"content_map\": {\n    \"pages\": [\n      {\n        \"path\": \"/docs/quickstart\",\n        \"title\": \"Quickstart\",\n        \"summary\": \"Install a widget in five minutes.\",\n        \"section\": \"docs\",\n        \"md_url\": \"https://acme.example/docs/quickstart.md\",\n        \"content_hash\": \"9bddfd0ecd4d586d99ba337c162bf8cf1a1970cd48cd230c30569d72ed90dcac\"\n      },\n      {\n        \"path\": \"/\",\n        \"title\": \"Acme Widgets\",\n        \"summary\": \"What Acme makes and where to start.\",\n        \"section\": \"company\",\n        \"md_url\": \"https://acme.example/index.md\",\n        \"content_hash\": \"73d4c550394b1b8377e841c425fa9cc943dac09adf0d26c2e4e88b7203ae2eb6\"\n      },\n      {\n        \"path\": \"/pricing\",\n        \"title\": \"Pricing\",\n        \"summary\": \"One price per widget, no subscription.\",\n        \"section\": \"company\",\n        \"md_url\": \"https://acme.example/pricing.md\",\n        \"content_hash\": \"92ae285c5d6e16ac8cdf93e022817c69e153293f4eb5c41825b26f74fe2bba42\"\n      }\n    ]\n  }\n}\n",
-      "etag": "\"680985c094eb3a0914065d8c84cdbbb8\""
+      "body": "{\n  \"spec_version\": \"1.0\",\n  \"domain\": \"acme.example\",\n  \"issued_at\": \"2026-11-14T00:00:00.000Z\",\n  \"content_source\": \"source-connected\",\n  \"issuer\": {\n    \"name\": \"Acme Widgets Ltd\",\n    \"contact\": \"mailto:web@acme.example\"\n  },\n  \"ai_disclosure\": {\n    \"systems\": []\n  },\n  \"content_map\": {\n    \"pages\": [\n      {\n        \"path\": \"/docs/quickstart\",\n        \"title\": \"Quickstart\",\n        \"summary\": \"Install a widget in five minutes.\",\n        \"section\": \"docs\",\n        \"md_url\": \"https://acme.example/docs/quickstart.md\",\n        \"content_hash\": \"cf796c0d0219890e7afef639bbb7b5d92ee9e52fabf79e65197713469bd00f71\"\n      },\n      {\n        \"path\": \"/\",\n        \"title\": \"Acme Widgets\",\n        \"summary\": \"What Acme makes and where to start.\",\n        \"section\": \"company\",\n        \"md_url\": \"https://acme.example/index.md\",\n        \"content_hash\": \"68ac28c7b91ccbfe88ceb05619cf8282d15154ddd7fcad0a1815bdbf07607c91\"\n      },\n      {\n        \"path\": \"/pricing\",\n        \"title\": \"Pricing\",\n        \"summary\": \"One price per widget, no subscription.\",\n        \"section\": \"company\",\n        \"md_url\": \"https://acme.example/pricing.md\",\n        \"content_hash\": \"22c0158f5f59b52b258f28f5d6f70d52b889c3eec5a332b3284a3524de13608f\"\n      }\n    ]\n  }\n}\n",
+      "etag": "\"c7f528ebbd616cbaa3c2b181bef362ee\""
     }
   },
   "corpus": {
@@ -65,17 +65,17 @@
       {
         "path": "/docs/quickstart",
         "title": "Quickstart",
-        "md": "# Quickstart\n> Install a widget in five minutes.\n\n# Quickstart\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n"
+        "md": "# Quickstart\n> Install a widget in five minutes.\n\n1. Unpack the widget.\n2. Connect it to power.\n3. Press the button once.\n"
       },
       {
         "path": "/",
         "title": "Acme Widgets",
-        "md": "# Acme Widgets\n> What Acme makes and where to start.\n\n# Acme Widgets\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n"
+        "md": "# Acme Widgets\n> What Acme makes and where to start.\n\nAcme makes small, reliable widgets. Start with the [quickstart](/docs/quickstart).\n"
       },
       {
         "path": "/pricing",
         "title": "Pricing",
-        "md": "# Pricing\n> One price per widget, no subscription.\n\n# Pricing\n\nEach widget costs 5 euros. There is no subscription.\n"
+        "md": "# Pricing\n> One price per widget, no subscription.\n\nEach widget costs 5 euros. There is no subscription.\n"
       }
     ],
     "policy": {
@@ -103,7 +103,7 @@
             "summary": "Install a widget in five minutes.",
             "section": "docs",
             "md_url": "https://acme.example/docs/quickstart.md",
-            "content_hash": "9bddfd0ecd4d586d99ba337c162bf8cf1a1970cd48cd230c30569d72ed90dcac"
+            "content_hash": "cf796c0d0219890e7afef639bbb7b5d92ee9e52fabf79e65197713469bd00f71"
           },
           {
             "path": "/",
@@ -111,7 +111,7 @@
             "summary": "What Acme makes and where to start.",
             "section": "company",
             "md_url": "https://acme.example/index.md",
-            "content_hash": "73d4c550394b1b8377e841c425fa9cc943dac09adf0d26c2e4e88b7203ae2eb6"
+            "content_hash": "68ac28c7b91ccbfe88ceb05619cf8282d15154ddd7fcad0a1815bdbf07607c91"
           },
           {
             "path": "/pricing",
@@ -119,7 +119,7 @@
             "summary": "One price per widget, no subscription.",
             "section": "company",
             "md_url": "https://acme.example/pricing.md",
-            "content_hash": "92ae285c5d6e16ac8cdf93e022817c69e153293f4eb5c41825b26f74fe2bba42"
+            "content_hash": "22c0158f5f59b52b258f28f5d6f70d52b889c3eec5a332b3284a3524de13608f"
           }
         ]
       }
