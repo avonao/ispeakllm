@@ -1,0 +1,11 @@
+{
+  "name": "@ispeakllm/policy",
+  "version": "0.1.0",
+  "description": "IspeakLLM policy",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "private": true
+}

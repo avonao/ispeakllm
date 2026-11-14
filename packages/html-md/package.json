@@ -1,0 +1,11 @@
+{
+  "name": "@ispeakllm/html-md",
+  "version": "0.1.0",
+  "description": "IspeakLLM html-md",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "private": true
+}

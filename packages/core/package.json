@@ -1,0 +1,11 @@
+{
+  "name": "@ispeakllm/core",
+  "version": "0.1.0",
+  "description": "IspeakLLM core",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "private": true
+}

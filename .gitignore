@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.wrangler/
+.next/
+.env*
+*.pem
+*.key
+.DS_Store
