@@ -1,0 +1,25 @@
+{
+  "source": "RFC 8785 Appendix B (number serialisation) and section 3.2.2",
+  "note": "ieee is the IEEE 754 binary64 bit pattern in hex; expected is the JCS serialisation, or null when it must be rejected",
+  "vectors": [
+    { "ieee": "0000000000000000", "expected": "0" },
+    { "ieee": "8000000000000000", "expected": "0" },
+    { "ieee": "0000000000000001", "expected": "5e-324" },
+    { "ieee": "8000000000000001", "expected": "-5e-324" },
+    { "ieee": "7fefffffffffffff", "expected": "1.7976931348623157e+308" },
+    { "ieee": "ffefffffffffffff", "expected": "-1.7976931348623157e+308" },
+    { "ieee": "4340000000000000", "expected": "9007199254740992" },
+    { "ieee": "c340000000000000", "expected": "-9007199254740992" },
+    { "ieee": "4430000000000000", "expected": "295147905179352830000" },
+    { "ieee": "7fffffffffffffff", "expected": null },
+    { "ieee": "7ff0000000000000", "expected": null },
+    { "ieee": "44b52d02c7e14af5", "expected": "9.999999999999997e+22" },
+    { "ieee": "44b52d02c7e14af6", "expected": "1e+23" },
+    { "ieee": "44b52d02c7e14af7", "expected": "1.0000000000000001e+23" },
+    { "ieee": "444b1ae4d6e2ef4e", "expected": "999999999999999700000" },
+    { "ieee": "444b1ae4d6e2ef4f", "expected": "999999999999999900000" },
+    { "ieee": "444b1ae4d6e2ef50", "expected": "1e+21" },
+    { "ieee": "3eb0c6f7a0b5ed8c", "expected": "9.999999999999997e-7" },
+    { "ieee": "3eb0c6f7a0b5ed8d", "expected": "0.000001" }
+  ]
+}

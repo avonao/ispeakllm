@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ispeakllm:schema:acm:1.0",
+  "title": "AI Conformance Manifest (ACM) v1",
+  "description": "Machine-readable, signed expression of a domain's AI-disclosure posture, content map, and provenance. Article 50's disclosure obligation is human-facing; this manifest is value-add governance and forward infrastructure, NOT itself a legal requirement. The signature is computed over the JCS (RFC 8785) canonicalization of the manifest with provenance.signature, provenance.anchor and provenance.content_id removed. See spec/signing.",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "domain",
+    "issued_at",
+    "issuer",
+    "ai_disclosure",
+    "content_map",
+    "provenance"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "spec_version": {
+      "type": "string",
+      "description": "ACM specification version.",
+      "const": "1.0"
+    },
+    "domain": {
+      "type": "string",
+      "format": "hostname",
+      "description": "The domain this manifest describes."
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this manifest version was generated and signed."
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Freshness boundary. Past this time a fetcher should treat the manifest as stale and re-fetch."
+    },
+    "content_source": {
+      "type": "string",
+      "enum": [
+        "source-connected",
+        "managed-crawl"
+      ],
+      "default": "source-connected",
+      "description": "Provenance of the content map. 'managed-crawl' is the explicitly-degraded fallback and MUST be surfaced to consumers as lower fidelity."
+    },
+    "issuer": {
+      "type": "object",
+      "description": "Identity of the domain owner / manifest issuer.",
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "legal_entity": {
+          "type": "string",
+          "description": "Registered legal entity, if disclosed."
+        },
+        "contact": {
+          "type": "string",
+          "format": "email"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "ISO 3166 country/region of the operating entity."
+        }
+      }
+    },
+    "ai_disclosure": {
+      "type": "object",
+      "description": "The Article 50-aligned disclosure block: the AI systems operating on the site.",
+      "required": [
+        "systems"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Plain-language overview of AI use on the site."
+        },
+        "systems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/aiSystem"
+          }
+        }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "description": "Reference to the consent configuration the site's cookie/consent banner renders, so the human banner and this machine manifest read the same source.",
+      "additionalProperties": false,
+      "properties": {
+        "config_ref": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical reference to the consent configuration."
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Declared consent categories (e.g. necessary, analytics, marketing)."
+        },
+        "framework": {
+          "type": "string",
+          "description": "Consent framework in use, if any (e.g. TCF)."
+        }
+      }
+    },
+    "content_map": {
+      "type": "object",
+      "description": "Structured map of the public content surface. The source for llms.txt / llms-full.txt / per-page .md renderings.",
+      "required": [
+        "pages"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sections": {
+          "type": "array",
+          "description": "Ordered, named groupings used to build the curated llms.txt index.",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/page"
+          }
+        }
+      }
+    },
+    "policies": {
+      "type": "object",
+      "description": "Links to governing policy documents.",
+      "additionalProperties": false,
+      "properties": {
+        "privacy": {
+          "type": "string",
+          "format": "uri"
+        },
+        "ai_policy": {
+          "type": "string",
+          "format": "uri"
+        },
+        "terms": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "description": "How a third party can verify this manifest.",
+      "additionalProperties": false,
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "jwks_uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "instructions": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "description": "Signing and anchoring envelope. 'signature', 'anchor' and 'content_id' are EXCLUDED from the canonicalized payload that 'signature' signs; every other member is signed.",
+      "required": [
+        "algorithm",
+        "canonicalization",
+        "signed_at",
+        "signature"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "string",
+          "const": "Ed25519"
+        },
+        "canonicalization": {
+          "type": "string",
+          "const": "JCS/RFC8785"
+        },
+        "signed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "public_key": {
+          "type": "string",
+          "description": "Base64url-encoded raw Ed25519 public key (the JWK 'x' value). Optional: omit in favour of key_ref + a JWKS."
+        },
+        "key_ref": {
+          "type": "string",
+          "description": "Identifier of the signing key (kid): the RFC 7638 thumbprint of the Ed25519 public key, or a JWKS kid."
+        },
+        "content_id": {
+          "type": "string",
+          "pattern": "^ispk_[A-Za-z0-9_-]{43}$",
+          "description": "Content address of the signing payload: 'ispk_' + base64url(SHA-256(JCS(payload))). Verifiers recompute it before checking the signature."
+        },
+        "signature": {
+          "type": "string",
+          "description": "Base64url-encoded Ed25519 signature over the JCS-canonicalized payload excluding provenance.signature and provenance.anchor."
+        },
+        "anchor": {
+          "type": "object",
+          "description": "Optional timestamp anchor from a third-party attestation service. Added AFTER signing; absent until then. The manifest is valid and verifiable from signed_at regardless of anchor state.",
+          "additionalProperties": false,
+          "properties": {
+            "attestation_id": {
+              "type": "string",
+              "description": "Identifier of the attestation at the anchoring service."
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "settled"
+              ]
+            },
+            "txid": {
+              "type": "string",
+              "description": "Transaction id of the anchor, if the service anchors to a public ledger."
+            },
+            "block_height": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "merkle_proof_ref": {
+              "type": "string",
+              "format": "uri",
+              "description": "Where the inclusion proof can be retrieved."
+            },
+            "anchored_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "aiSystem": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "purpose"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "description": "Article 50-aligned interaction category.",
+          "enum": [
+            "conversational_ai",
+            "content_generation",
+            "synthetic_media",
+            "recommendation",
+            "personalization",
+            "emotion_recognition",
+            "biometric_categorization",
+            "other"
+          ]
+        },
+        "synthetic_media": {
+          "type": "boolean",
+          "default": false,
+          "description": "True if the system generates or manipulates image, audio, or video content that should be marked as artificially generated (Article 50 transparency)."
+        },
+        "purpose": {
+          "type": "string",
+          "description": "What the system does on the site."
+        },
+        "provider": {
+          "type": "string",
+          "description": "Underlying model/provider, if disclosed."
+        },
+        "user_facing_disclosure": {
+          "type": "string",
+          "description": "The exact plain-language disclosure shown to humans for this system. Must mirror what the site shows."
+        },
+        "human_oversight": {
+          "type": "string",
+          "description": "Nature of human oversight, if any."
+        },
+        "data_handling": {
+          "type": "string",
+          "description": "Summary of data the system processes."
+        },
+        "high_risk": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether the operator considers this a high-risk use under the EU AI Act. Self-declared; not a legal determination."
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": [
+        "path",
+        "title"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Site-relative path."
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string",
+          "description": "References a content_map.sections[].id."
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Higher = more prominent in the curated index."
+        },
+        "last_modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "md_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the per-page markdown rendering."
+        },
+        "content_hash": {
+          "type": "string",
+          "description": "Hash of the canonical markdown for this page."
+        }
+      }
+    }
+  }
+}

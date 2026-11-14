@@ -1,1 +1,13 @@
-export {};
+export { canonicalize, canonicalBytes } from "./jcs";
+export { toBase64Url, fromBase64Url, toHex, fromHex } from "./encoding";
+export { sha256, sha256Hex, contentId, contentIdOfBytes, isContentId, ID_PREFIX } from "./hash";
+export { generateKeyPair, exportKeyPair, importKeyPair, toPublicJwk, thumbprint, signBytes, verifyBytes, isEd25519Jwk } from "./keys";
+export type { Jwk, PublicJwk, KeyPair } from "./keys";
+export { buildJwks, readJwks } from "./jwks";
+export type { Jwks, JwksReader } from "./jwks";
+export { signManifest, verifyManifest, signingPayload, ALGORITHM, CANONICALIZATION } from "./manifest";
+export type { SignedManifest, UnsignedManifest, Provenance, Anchor, SignOptions, VerifyOptions, VerifyResult, VerifyCode, VerifyDetails } from "./manifest";
+export { signDetached, verifyDetached, DETACHED_TYP } from "./detached";
+export type { DetachedSignature, DetachedSignOptions, DetachedVerifyOptions } from "./detached";
+export { verify } from "./verify";
+export type { VerifyInput, VerifyEntryOptions, VerifyVerdict } from "./verify";
