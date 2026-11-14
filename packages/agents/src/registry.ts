@@ -36,9 +36,9 @@ export const KNOWN_AGENTS: readonly KnownAgent[] = [
     signatureAgentOrigins: ["https://chatgpt.com"],
     ipRangesUrl: "https://openai.com/chatgpt-user.json",
   },
-  { id: "claudebot", token: "ClaudeBot", operator: "Anthropic", kind: "training", note: "No published IP list; verify by signature only." },
-  { id: "claude-searchbot", token: "Claude-SearchBot", operator: "Anthropic", kind: "search", note: "No published IP list." },
-  { id: "claude-user", token: "Claude-User", operator: "Anthropic", kind: "user-fetch", note: "No published IP list." },
+  { id: "claudebot", token: "ClaudeBot", operator: "Anthropic", kind: "training", ipRangesUrl: "https://claude.com/crawling/bots.json", note: "One IP list for all Anthropic bots (support.claude.com, Nov 2026); robots.txt is the recommended control." },
+  { id: "claude-searchbot", token: "Claude-SearchBot", operator: "Anthropic", kind: "search", ipRangesUrl: "https://claude.com/crawling/bots.json", note: "One IP list for all Anthropic bots (support.claude.com, Nov 2026); robots.txt is the recommended control." },
+  { id: "claude-user", token: "Claude-User", operator: "Anthropic", kind: "user-fetch", ipRangesUrl: "https://claude.com/crawling/bots.json", note: "One IP list for all Anthropic bots (support.claude.com, Nov 2026); robots.txt is the recommended control." },
   { id: "perplexitybot", token: "PerplexityBot", operator: "Perplexity", kind: "search", ipRangesUrl: "https://www.perplexity.com/perplexitybot.json" },
   { id: "perplexity-user", token: "Perplexity-User", operator: "Perplexity", kind: "user-fetch", ipRangesUrl: "https://www.perplexity.com/perplexity-user.json" },
   {
