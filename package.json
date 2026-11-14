@@ -3,14 +3,25 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "workspaces": ["packages/*", "adapters/*"],
+  "workspaces": [
+    "packages/*",
+    "adapters/*",
+    "integrations/shopify",
+    "integrations/vue",
+    "integrations/svelte",
+    "integrations/angular"
+  ],
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc -b --noEmit false || tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "npm run build -w @ispeakllm/cli",
+    "cli": "node packages/cli/dist/ispeakllm.mjs",
+    "conformance": "node conformance/adapter-http/runner.mjs"
   },
   "devDependencies": {
     "typescript": "^5.6.3",
     "vitest": "^3.2.4",
-    "@types/node": "^22"
+    "@types/node": "^22",
+    "esbuild": "^0.28.0"
   }
 }

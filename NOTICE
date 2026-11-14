@@ -1,0 +1,8 @@
+IspeakLLM
+Copyright 2026 Avonao
+
+Licensed under the MIT License (see LICENSE).
+
+Parts of this code are ported from earlier Avonao implementations (the GoPlainly llms.txt engine, the
+Trustvice declaration model and the Consentrack fetch ledger); each ported file names its source.
+Test vectors from RFC 8032, RFC 8037, RFC 8785 and RFC 9421 are used under the IETF Trust's licence terms.

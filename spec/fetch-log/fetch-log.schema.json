@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ispeakllm:schema:fetch:1",
+  "title": "IspeakLLM fetch record (ispeakllm.fetch/1)",
+  "description": "One line of an NDJSON fetch log: what an agent fetched, the exact bytes' hash, and how far its identity was proven. A raw IP address is never stored.",
+  "type": "object",
+  "required": ["schema", "fetchId", "url", "contentSha256", "fetchedAtIso", "grade"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "ispeakllm.fetch/1" },
+    "fetchId": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "minLength": 1 },
+    "contentSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "fetchedAtIso": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T" },
+    "status": { "type": ["integer", "null"] },
+    "grade": { "enum": ["verified", "failed", "unauthenticated", "unchecked"] },
+    "network": { "enum": ["none", "claimed", "ip-verified", "rdns-verified"] },
+    "code": { "type": ["string", "null"] },
+    "operator": { "type": ["string", "null"], "description": "Only when grade is verified." },
+    "claimedAgent": { "type": ["string", "null"], "description": "What the User-Agent claims. Never attribution." },
+    "userAgent": { "type": ["string", "null"], "maxLength": 256 },
+    "keyid": { "type": ["string", "null"] },
+    "ipHash": { "type": ["string", "null"], "pattern": "^ip1_[0-9a-f]{32}$" }
+  }
+}
