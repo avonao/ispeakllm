@@ -1,0 +1,53 @@
+# Acme Docs
+
+> Documentation for the Acme widget platform.
+
+# Install
+> Install the Acme CLI in one minute.
+
+```bash
+npm i -g acme
+```
+
+Then run `acme init`.
+
+---
+
+# API reference
+> Every endpoint, with examples.
+
+## GET /widgets
+
+Returns the widget list.
+
+---
+
+# Administration
+> Users, billing and audit log.
+
+Admins manage seats in the console.
+
+---
+
+# Hello world [launch]
+> Our first post.
+
+First post.
+
+---
+
+# Acme Docs
+> Documentation for the Acme widget platform.
+
+# Welcome
+
+Acme builds widgets. Start with the [install guide](/docs/install).
+
+---
+
+# Changelog
+> Release history.
+
+## 1.0.0
+
+Initial release.

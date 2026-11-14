@@ -1,0 +1,24 @@
+# Acme Docs
+
+> Documentation for the Acme widget platform.
+
+## Getting started
+
+- [Install](https://acme.example/docs/install.md): Install the Acme CLI in one minute.
+
+## Reference
+
+- [API reference](https://acme.example/docs/api.md): Every endpoint, with examples.
+- [Administration](https://acme.example/docs/admin.md): Users, billing and audit log.
+
+## blog
+
+- [Hello world \[launch\]](https://acme.example/blog/hello.md): Our first post.
+
+## Pages
+
+- [Acme Docs](https://acme.example/index.md): Documentation for the Acme widget platform.
+
+## Optional
+
+- [Changelog](https://acme.example/docs/changelog.md): Release history.

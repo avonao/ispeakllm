@@ -1,0 +1,176 @@
+=== /blog/hello.md
+# Hello world [launch]
+> Our first post.
+
+First post.
+
+=== /de/index.md
+# Acme Dokumentation
+> Dokumentation der Acme-Widget-Plattform.
+
+Acme baut Widgets.
+
+=== /de/install.md
+# Installation
+> Die Acme-CLI in einer Minute installieren.
+
+Dann `acme init` ausfuehren.
+
+=== /de/llms-full.txt
+# Acme Dokumentation
+
+> Dokumentation der Acme-Plattform.
+
+# Installation
+> Die Acme-CLI in einer Minute installieren.
+
+Dann `acme init` ausfuehren.
+
+---
+
+# Acme Dokumentation
+> Dokumentation der Acme-Widget-Plattform.
+
+Acme baut Widgets.
+
+=== /de/llms.txt
+# Acme Dokumentation
+
+> Dokumentation der Acme-Plattform.
+
+## Getting started
+
+- [Installation](https://acme.example/de/install.md): Die Acme-CLI in einer Minute installieren.
+
+## Pages
+
+- [Acme Dokumentation](https://acme.example/de.md): Dokumentation der Acme-Widget-Plattform.
+
+## Languages
+
+- [English](https://acme.example/llms.txt): alternate (en) llms.txt
+
+=== /docs/admin.md
+# Administration
+> Users, billing and audit log.
+
+Admins manage seats in the console.
+
+=== /docs/api.md
+# API reference
+> Every endpoint, with examples.
+
+## GET /widgets
+
+Returns the widget list.
+
+=== /docs/changelog.md
+# Changelog
+> Release history.
+
+## 1.0.0
+
+Initial release.
+
+=== /docs/install.md
+# Install
+> Install the Acme CLI in one minute.
+
+```bash
+npm i -g acme
+```
+
+Then run `acme init`.
+
+=== /index.md
+# Acme Docs
+> Documentation for the Acme widget platform.
+
+# Welcome
+
+Acme builds widgets. Start with the [install guide](/docs/install).
+
+=== /llms-full.txt
+# Acme Docs
+
+> Documentation for the Acme widget platform.
+
+# Install
+> Install the Acme CLI in one minute.
+
+```bash
+npm i -g acme
+```
+
+Then run `acme init`.
+
+---
+
+# API reference
+> Every endpoint, with examples.
+
+## GET /widgets
+
+Returns the widget list.
+
+---
+
+# Administration
+> Users, billing and audit log.
+
+Admins manage seats in the console.
+
+---
+
+# Hello world [launch]
+> Our first post.
+
+First post.
+
+---
+
+# Acme Docs
+> Documentation for the Acme widget platform.
+
+# Welcome
+
+Acme builds widgets. Start with the [install guide](/docs/install).
+
+---
+
+# Changelog
+> Release history.
+
+## 1.0.0
+
+Initial release.
+
+=== /llms.txt
+# Acme Docs
+
+> Documentation for the Acme widget platform.
+
+## Getting started
+
+- [Install](https://acme.example/docs/install.md): Install the Acme CLI in one minute.
+
+## Reference
+
+- [API reference](https://acme.example/docs/api.md): Every endpoint, with examples.
+- [Administration](https://acme.example/docs/admin.md): Users, billing and audit log.
+
+## blog
+
+- [Hello world \[launch\]](https://acme.example/blog/hello.md): Our first post.
+
+## Pages
+
+- [Acme Docs](https://acme.example/index.md): Documentation for the Acme widget platform.
+
+## Languages
+
+- [Deutsch](https://acme.example/de/llms.txt): alternate (de) llms.txt
+
+## Optional
+
+- [Changelog](https://acme.example/docs/changelog.md): Release history.
