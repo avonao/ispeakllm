@@ -1,0 +1,1 @@
+{ "name": "@ispeakllm/shopify", "version": "0.1.0", "description": "IspeakLLM for Shopify storefronts through an App Proxy", "license": "MIT", "type": "module", "main": "./src/index.ts", "types": "./src/index.ts", "dependencies": { "@ispeakllm/serve": "0.1.0" }, "sideEffects": false, "private": true }

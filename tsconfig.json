@@ -3,7 +3,7 @@
     "target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler",
     "strict": true, "skipLibCheck": true, "noEmit": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"], "types": ["node"],
-    "paths": { "@ispeakllm/*": ["./packages/*/src/index.ts"] }
+    "paths": { "@ispeakllm/express": ["./adapters/express/src/index.ts"], "@ispeakllm/*": ["./packages/*/src/index.ts"] }
   },
-  "include": ["packages/*/src", "packages/*/test", "adapters/*/src", "adapters/*/test"]
+  "include": ["packages/*/src", "packages/*/test", "adapters/*/src", "adapters/*/test", "integrations/shopify/src", "integrations/shopify/test", "integrations/vue/src", "integrations/vue/test", "integrations/svelte/src", "integrations/svelte/test", "integrations/angular/src", "integrations/angular/test"]
 }
