@@ -24,7 +24,7 @@ export type { DirectoryCache, DirectoryEntry, DirectoryFetchResult, DirectoryFet
 export { cidrContains, ipInAnyCidr, normaliseIp, parseCidr, parseIp, toArpaName } from "./cidr";
 export type { Cidr, ParsedIp } from "./cidr";
 export { saltedIpHash } from "./ip-hash";
-export { KNOWN_AGENTS, agentBySignatureOrigin, matchAgentByUserAgent } from "./registry";
+export { KNOWN_AGENTS, REGISTRY_VERIFIED_AT, agentBySignatureOrigin, matchAgentByUserAgent } from "./registry";
 export type { AgentKind, KnownAgent } from "./registry";
 export { createDohResolver, forwardConfirmedReverse } from "./rdns";
 export type { DnsResolver, DohFetch, ReverseDnsResult } from "./rdns";

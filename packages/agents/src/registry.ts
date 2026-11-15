@@ -25,6 +25,13 @@ export type KnownAgent = {
   readonly note?: string;
 };
 
+/**
+ * Date the range URLs, rDNS suffixes and Signature-Agent origins below were last checked against the
+ * vendors' published sources (each URL answered 200 with the `{creationTime, prefixes}` shape;
+ * chatgpt.com serves its Web Bot Auth key directory). Re-check when this is older than 90 days.
+ */
+export const REGISTRY_VERIFIED_AT = "2026-11-15";
+
 export const KNOWN_AGENTS: readonly KnownAgent[] = [
   { id: "gptbot", token: "GPTBot", operator: "OpenAI", kind: "training", ipRangesUrl: "https://openai.com/gptbot.json" },
   { id: "oai-searchbot", token: "OAI-SearchBot", operator: "OpenAI", kind: "search", ipRangesUrl: "https://openai.com/searchbot.json" },
@@ -58,7 +65,7 @@ export const KNOWN_AGENTS: readonly KnownAgent[] = [
   },
   { id: "bingbot", token: "Bingbot", operator: "Microsoft", kind: "crawler", ipRangesUrl: "https://www.bing.com/toolbox/bingbot.json", rdnsSuffixes: ["search.msn.com"] },
   { id: "applebot", token: "Applebot", operator: "Apple", kind: "crawler", ipRangesUrl: "https://search.developer.apple.com/applebot.json", rdnsSuffixes: ["applebot.apple.com"] },
-  { id: "ccbot", token: "CCBot", operator: "Common Crawl", kind: "training", ipRangesUrl: "https://index.commoncrawl.org/ccbot.json" },
+  { id: "ccbot", token: "CCBot", operator: "Common Crawl", kind: "training", ipRangesUrl: "https://index.commoncrawl.org/ccbot.json", rdnsSuffixes: ["crawl.commoncrawl.org"] },
   { id: "bytespider", token: "Bytespider", operator: "ByteDance", kind: "training", note: "No published verification method; always only claimed." },
 ];
 
