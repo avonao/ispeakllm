@@ -16,6 +16,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "build": "npm run build -w @ispeakllm/cli",
     "cli": "node packages/cli/dist/ispeakllm.mjs",
+    "release": "node scripts/release.mjs",
     "conformance": "node conformance/adapter-http/runner.mjs"
   },
   "devDependencies": {

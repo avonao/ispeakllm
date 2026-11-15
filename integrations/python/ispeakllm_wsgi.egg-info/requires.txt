@@ -1,0 +1,6 @@
+
+[django]
+Django>=3.2
+
+[flask]
+Flask>=2.0
