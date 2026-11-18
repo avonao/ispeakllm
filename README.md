@@ -1,4 +1,9 @@
-<h1><img src="docs/assets/ispeakllm-logo.avif" alt="iSpeakLLM" width="380"></h1>
+<h1>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/ispeakllm-logo-light.avif">
+    <img src="docs/assets/ispeakllm-logo.avif" alt="iSpeakLLM" width="380">
+  </picture>
+</h1>
 
 Make any website easy for AI agents to read, from your own content, on any host. MIT licensed.
 
