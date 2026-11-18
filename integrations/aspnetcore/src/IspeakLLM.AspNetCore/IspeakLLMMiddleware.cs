@@ -8,7 +8,7 @@ using Microsoft.Extensions.Options;
 
 namespace IspeakLLM.AspNetCore;
 
-/// <summary>Options: <c>services.AddIspeakLLM(o =&gt; o.BundlePath = ".ispeakllm/bundle.json")</c> or the <c>IspeakLLM</c> config section.</summary>
+/// <summary>Options: <c>services.AddIspeakLLM(o =&gt; o.BundlePath = ".ispeakllm/bundle.json")</c> or the <c>iSpeakLLM</c> config section.</summary>
 public sealed class IspeakLLMOptions
 {
     public string BundlePath { get; set; } = ".ispeakllm/bundle.json";
@@ -78,7 +78,7 @@ public static class IspeakLLMExtensions
     /// <summary>Register the bundle server (loaded once from <see cref="IspeakLLMOptions.BundlePath"/>).</summary>
     public static IServiceCollection AddIspeakLLM(this IServiceCollection services, Action<IspeakLLMOptions>? configure = null)
     {
-        var builder = services.AddOptions<IspeakLLMOptions>().BindConfiguration("IspeakLLM");
+        var builder = services.AddOptions<IspeakLLMOptions>().BindConfiguration("iSpeakLLM");
         if (configure is not null) builder.Configure(configure);
         services.AddSingleton(sp =>
         {

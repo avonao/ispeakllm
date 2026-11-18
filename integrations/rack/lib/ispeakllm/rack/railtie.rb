@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# New for the IspeakLLM OSS port (no Rails source in goplainly-v6-2026-11-10-current-dormant)
+# New for the iSpeakLLM OSS port (no Rails source in goplainly-v6-2026-11-10-current-dormant)
 # SPDX-License-Identifier: MIT
 
 module IspeakLLM

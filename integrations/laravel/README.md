@@ -1,6 +1,6 @@
-# IspeakLLM for Laravel
+# iSpeakLLM for Laravel
 
-Serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) from a Laravel app with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. Your HTML responses only gain `Vary: Accept`, `Link` and policy headers.
+Serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) from a Laravel app with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. Your HTML responses only gain `Vary: Accept`, `Link` and policy headers.
 
 The only runtime requirements are Laravel itself (`illuminate/support`, `illuminate/http`). Licence: MIT.
 

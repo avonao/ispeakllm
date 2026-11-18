@@ -1,6 +1,6 @@
-# IspeakLLM for ASP.NET Core
+# iSpeakLLM for ASP.NET Core
 
-Middleware that serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers (in `OnStarting`, no buffering).
+Middleware that serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers (in `OnStarting`, no buffering).
 
 .NET 8, shared framework only (`Microsoft.AspNetCore.App`, System.Text.Json); no NuGet runtime dependencies. Licence: MIT.
 
@@ -15,7 +15,7 @@ dotnet add package IspeakLLM.AspNetCore
 ## Use
 
 ```csharp
-builder.Services.AddIspeakLLM(o => o.BundlePath = ".ispeakllm/bundle.json"); // or appsettings "IspeakLLM": { "BundlePath": ..., "CacheControl": ... }
+builder.Services.AddIspeakLLM(o => o.BundlePath = ".ispeakllm/bundle.json"); // or appsettings "iSpeakLLM": { "BundlePath": ..., "CacheControl": ... }
 var app = builder.Build();
 app.UseIspeakLLM();   // early: before UseStaticFiles and routing
 ```

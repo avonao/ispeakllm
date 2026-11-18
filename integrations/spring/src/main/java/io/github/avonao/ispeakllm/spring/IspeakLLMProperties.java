@@ -1,4 +1,4 @@
-// New for the IspeakLLM OSS port (ispeakllm.* keys modeled on goplainly.llms-txt.* in integrations/spring/.../GoPlainlyLlmsTxtController.java, goplainly-v6-2026-11-10-current-dormant)
+// New for the iSpeakLLM OSS port (ispeakllm.* keys modeled on goplainly.llms-txt.* in integrations/spring/.../GoPlainlyLlmsTxtController.java, goplainly-v6-2026-11-10-current-dormant)
 // SPDX-License-Identifier: MIT
 package io.github.avonao.ispeakllm.spring;
 

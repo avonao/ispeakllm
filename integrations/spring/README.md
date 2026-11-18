@@ -1,6 +1,6 @@
-# IspeakLLM for Spring Boot
+# iSpeakLLM for Spring Boot
 
-A servlet filter (auto-configured) that serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers, applied when the HTML content type is set (no buffering).
+A servlet filter (auto-configured) that serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers, applied when the HTML content type is set (no buffering).
 
 Spring Boot 3 / Java 17. No dependencies beyond what a Spring Boot web app already has (Spring Web, Jackson). Licence: MIT.
 

@@ -1,6 +1,6 @@
 {
     "name": "ispeakllm/laravel",
-    "description": "Serve an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from a Laravel app.",
+    "description": "Serve an iSpeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from a Laravel app.",
     "type": "library",
     "license": "MIT",
     "require": {

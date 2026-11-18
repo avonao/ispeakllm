@@ -1,7 +1,7 @@
 {
   "name": "@ispeakllm/hono",
   "version": "0.1.0",
-  "description": "IspeakLLM middleware for Hono (Workers, Bun, Deno, Node)",
+  "description": "iSpeakLLM middleware for Hono (Workers, Bun, Deno, Node)",
   "license": "MIT",
   "type": "module",
   "main": "./src/index.ts",

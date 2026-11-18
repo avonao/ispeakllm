@@ -2,7 +2,7 @@
 // Ported from packages/serve/src/index.ts + packages/core/src/negotiate.ts (ispeakllm); framework wiring from integrations/*/LlmsTxtController.php (goplainly-v6-2026-11-10-current-dormant)
 // SPDX-License-Identifier: MIT
 //
-// Framework-independent IspeakLLM bundle server for PHP. No Composer runtime dependencies.
+// Framework-independent iSpeakLLM bundle server for PHP. No Composer runtime dependencies.
 // The WordPress, Laravel and Drupal integrations ship identical copies of this file
 // (each test checks the copies match).
 //
@@ -28,7 +28,7 @@ final class BundleServer
     public function __construct(array $bundle, string $cacheControl = 'public, max-age=300')
     {
         if (($bundle['version'] ?? null) !== 1 || !is_array($bundle['files'] ?? null)) {
-            throw new \InvalidArgumentException('IspeakLLM: not a version 1 bundle');
+            throw new \InvalidArgumentException('iSpeakLLM: not a version 1 bundle');
         }
         $this->bundle = $bundle;
         $this->cacheControl = $cacheControl;
@@ -38,7 +38,7 @@ final class BundleServer
     {
         $raw = @file_get_contents($path);
         if ($raw === false) {
-            throw new \RuntimeException('IspeakLLM: cannot read bundle at ' . $path);
+            throw new \RuntimeException('iSpeakLLM: cannot read bundle at ' . $path);
         }
         $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
         return new self($data, $cacheControl);

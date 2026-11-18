@@ -1,6 +1,6 @@
 {
     "name": "ispeakllm/drupal",
-    "description": "Drupal module serving an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers).",
+    "description": "Drupal module serving an iSpeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers).",
     "type": "drupal-module",
     "license": "MIT",
     "require": {

@@ -1,7 +1,7 @@
 {
   "name": "@ispeakllm/cli",
   "version": "0.1.0",
-  "description": "IspeakLLM command line: generate, lint, check, sign, verify and serve llms.txt and agent Markdown",
+  "description": "iSpeakLLM command line: generate, lint, check, sign, verify and serve llms.txt and agent Markdown",
   "license": "MIT",
   "type": "module",
   "main": "./src/index.ts",

@@ -1,5 +1,5 @@
 /**
- * One fetch-style request handler shared by every IspeakLLM adapter
+ * One fetch-style request handler shared by every iSpeakLLM adapter
  * (Cloudflare Worker, Next.js middleware, Express, Hono).
  *
  * It serves a generated bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`):

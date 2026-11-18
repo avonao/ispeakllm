@@ -1,4 +1,4 @@
-// New for IspeakLLM. `ai.txt` is a plain-text statement of the declaration, one
+// New for iSpeakLLM. `ai.txt` is a plain-text statement of the declaration, one
 // section per scope. There is no ratified standard for the file; this is a
 // readable summary in the same family as robots.txt. Subjects the declaration
 // is silent about are NOT listed, and `Allow-Use` lists only unconditional allows.

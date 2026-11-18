@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Framework-independent IspeakLLM bundle server. Needs only Jackson (already on a Spring Boot
+ * Framework-independent iSpeakLLM bundle server. Needs only Jackson (already on a Spring Boot
  * web classpath). {@link #handle} answers agent requests; {@link #discoveryHeaders} decorates HTML.
  */
 public final class BundleServer {
@@ -48,7 +48,7 @@ public final class BundleServer {
 
     public BundleServer(JsonNode bundle, String cacheControl) {
         if (bundle == null || bundle.path("version").asInt() != 1 || !bundle.path("files").isObject()) {
-            throw new IllegalArgumentException("IspeakLLM: not a version 1 bundle");
+            throw new IllegalArgumentException("iSpeakLLM: not a version 1 bundle");
         }
         this.bundle = bundle;
         this.cacheControl = cacheControl == null ? DEFAULT_CACHE_CONTROL : cacheControl;

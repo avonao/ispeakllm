@@ -1,6 +1,6 @@
 # Server-side framework integrations
 
-Thin, dependency-light ports that serve an IspeakLLM **bundle** (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters in `adapters/` (reference: `packages/serve/src/index.ts`, negotiation: `packages/core/src/negotiate.ts`). The spec is `conformance/adapter-http/cases.json`; every port passes the `core` level. MCP (`full` level) is not part of these ports.
+Thin, dependency-light ports that serve an iSpeakLLM **bundle** (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters in `adapters/` (reference: `packages/serve/src/index.ts`, negotiation: `packages/core/src/negotiate.ts`). The spec is `conformance/adapter-http/cases.json`; every port passes the `core` level. MCP (`full` level) is not part of these ports.
 
 | Integration | Folder | Runtime deps | Core conformance | Test (from the repo root) |
 | --- | --- | --- | --- | --- |

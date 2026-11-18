@@ -1,6 +1,6 @@
-# IspeakLLM for Drupal
+# iSpeakLLM for Drupal
 
-A Drupal 10/11 module that serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML pages only gain `Vary: Accept`, `Link` and policy headers.
+A Drupal 10/11 module that serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML pages only gain `Vary: Accept`, `Link` and policy headers.
 
 No runtime dependency beyond Drupal core. Licence: MIT.
 

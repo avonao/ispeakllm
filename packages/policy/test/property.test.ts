@@ -1,4 +1,4 @@
-// New for IspeakLLM. PROPERTY TEST: no projection is ever more permissive than
+// New for iSpeakLLM. PROPERTY TEST: no projection is ever more permissive than
 // the declaration. Fast-check-free: a seeded generator produces >= 500 random
 // declarations; an independent oracle (oracle.ts) parses the RENDERED output.
 import { describe, it, expect } from "vitest";

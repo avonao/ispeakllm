@@ -1,7 +1,7 @@
 {
   "name": "@ispeakllm/next",
   "version": "0.1.0",
-  "description": "IspeakLLM for Next.js: middleware that answers agents with Markdown, llms.txt, ACM, policy and MCP",
+  "description": "iSpeakLLM for Next.js: middleware that answers agents with Markdown, llms.txt, ACM, policy and MCP",
   "license": "MIT",
   "type": "module",
   "main": "./src/index.ts",

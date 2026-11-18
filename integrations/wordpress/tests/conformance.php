@@ -1,5 +1,5 @@
 <?php
-// New for the IspeakLLM OSS port (harness style after integrations/wordpress/tests/LlmsTxtTest.php, goplainly-v6-2026-11-10-current-dormant)
+// New for the iSpeakLLM OSS port (harness style after integrations/wordpress/tests/LlmsTxtTest.php, goplainly-v6-2026-11-10-current-dormant)
 // SPDX-License-Identifier: MIT
 //
 // Boots `php -S 127.0.0.1:<free port>` with tests/router.php (BundleServer + reference host),

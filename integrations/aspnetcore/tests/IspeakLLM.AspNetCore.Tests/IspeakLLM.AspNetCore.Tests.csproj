@@ -1,4 +1,4 @@
-<!-- New for the IspeakLLM OSS port -->
+<!-- New for the iSpeakLLM OSS port -->
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

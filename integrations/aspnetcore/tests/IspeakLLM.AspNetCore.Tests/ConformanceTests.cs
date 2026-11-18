@@ -1,4 +1,4 @@
-// New for the IspeakLLM OSS port (no tests in goplainly-v6-2026-11-10-current-dormant/integrations/aspnetcore)
+// New for the iSpeakLLM OSS port (no tests in goplainly-v6-2026-11-10-current-dormant/integrations/aspnetcore)
 // SPDX-License-Identifier: MIT
 using System.Net.Http;
 using System.Text.Json;

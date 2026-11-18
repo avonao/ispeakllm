@@ -1,4 +1,4 @@
-// New for IspeakLLM (RFC 8941 Structured Field Values, the subset RFC 9421 needs).
+// New for iSpeakLLM (RFC 8941 Structured Field Values, the subset RFC 9421 needs).
 // Replaces the narrow hand-parsers in trustvice-v3 web-bot-auth.ts and
 // goplainly-v6 webbotauth.ts with one strict parser. It rejects anything it
 // does not understand: a parser that guesses turns an unknown shape into a

@@ -1,4 +1,4 @@
-# New for the IspeakLLM OSS port (no services file in goplainly-v6-2026-11-10-current-dormant/integrations/drupal)
+# New for the iSpeakLLM OSS port (no services file in goplainly-v6-2026-11-10-current-dormant/integrations/drupal)
 # SPDX-License-Identifier: MIT
 services:
   ispeakllm.middleware:

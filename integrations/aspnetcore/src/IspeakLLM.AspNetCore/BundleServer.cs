@@ -11,7 +11,7 @@ namespace IspeakLLM.AspNetCore;
 /// <summary>A bundle answer. Header names are lower-case.</summary>
 public sealed record BundleResult(int Status, IReadOnlyDictionary<string, string> Headers, string Body);
 
-/// <summary>Framework-independent IspeakLLM bundle server (System.Text.Json only).</summary>
+/// <summary>Framework-independent iSpeakLLM bundle server (System.Text.Json only).</summary>
 public sealed class BundleServer
 {
     public static readonly IReadOnlySet<string> PolicyPaths = new HashSet<string> { "/robots.txt", "/ai.txt", "/license.xml", "/.well-known/tdmrep.json", "/.well-known/jwks.json" };
@@ -30,7 +30,7 @@ public sealed class BundleServer
         if (bundle.ValueKind != JsonValueKind.Object
             || !bundle.TryGetProperty("version", out var v) || v.ValueKind != JsonValueKind.Number || v.GetInt32() != 1
             || !bundle.TryGetProperty("files", out var f) || f.ValueKind != JsonValueKind.Object)
-            throw new ArgumentException("IspeakLLM: not a version 1 bundle");
+            throw new ArgumentException("iSpeakLLM: not a version 1 bundle");
         _bundle = bundle.Clone();
         _cacheControl = cacheControl ?? DefaultCacheControl;
     }

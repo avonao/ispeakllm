@@ -1,6 +1,6 @@
 # Signing profile v1
 
-How IspeakLLM artifacts are signed and verified. The reference implementation is `@ispeakllm/sign` (zero runtime dependencies; WebCrypto only, so it runs in Node 22, Cloudflare Workers, Deno, Bun and current browsers).
+How iSpeakLLM artifacts are signed and verified. The reference implementation is `@ispeakllm/sign` (zero runtime dependencies; WebCrypto only, so it runs in Node 22, Cloudflare Workers, Deno, Bun and current browsers).
 
 ## Primitives
 

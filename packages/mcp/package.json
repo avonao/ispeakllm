@@ -1,7 +1,7 @@
 {
   "name": "@ispeakllm/mcp",
   "version": "0.1.0",
-  "description": "IspeakLLM mcp",
+  "description": "iSpeakLLM mcp",
   "license": "MIT",
   "type": "module",
   "main": "./src/index.ts",

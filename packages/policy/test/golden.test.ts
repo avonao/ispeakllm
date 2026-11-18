@@ -1,4 +1,4 @@
-// New for IspeakLLM. Golden files for three fixture policies (permissive,
+// New for iSpeakLLM. Golden files for three fixture policies (permissive,
 // restrictive, conditional/mixed) under conformance/policy-*/. Regenerate with
 // UPDATE_GOLDEN=1 and review the diff by hand.
 import { describe, it, expect } from "vitest";

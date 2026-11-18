@@ -1,6 +1,6 @@
-# What IspeakLLM does not promise
+# What iSpeakLLM does not promise
 
-IspeakLLM makes a site's content easy for AI systems to read, states the site's terms in every machine-readable form
+iSpeakLLM makes a site's content easy for AI systems to read, states the site's terms in every machine-readable form
 that exists today, and records which agents fetched what. That is all it claims.
 
 - **No traffic, ranking or citation promises.** Serving Markdown or llms.txt does not make any AI product show,

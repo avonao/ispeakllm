@@ -1,4 +1,4 @@
-# New for the IspeakLLM OSS port (no Python source in goplainly-v6-2026-11-10-current-dormant)
+# New for the iSpeakLLM OSS port (no Python source in goplainly-v6-2026-11-10-current-dormant)
 # SPDX-License-Identifier: MIT
 """Boot wsgiref on a free 127.0.0.1 port with IspeakLLMMiddleware + the reference host app and
 run conformance/adapter-http/runner.mjs --level core against it.

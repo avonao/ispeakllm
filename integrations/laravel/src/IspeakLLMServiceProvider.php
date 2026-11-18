@@ -1,5 +1,5 @@
 <?php
-// New for the IspeakLLM OSS port (no service provider in goplainly-v6-2026-11-10-current-dormant/integrations/laravel)
+// New for the iSpeakLLM OSS port (no service provider in goplainly-v6-2026-11-10-current-dormant/integrations/laravel)
 // SPDX-License-Identifier: MIT
 
 declare(strict_types=1);

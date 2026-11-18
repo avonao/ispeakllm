@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# New for the IspeakLLM OSS port: Ruby port of packages/serve/src/index.ts + packages/core/src/negotiate.ts (no Ruby source in goplainly-v6-2026-11-10-current-dormant)
+# New for the iSpeakLLM OSS port: Ruby port of packages/serve/src/index.ts + packages/core/src/negotiate.ts (no Ruby source in goplainly-v6-2026-11-10-current-dormant)
 # SPDX-License-Identifier: MIT
 
 require "json"
@@ -22,7 +22,7 @@ module IspeakLLM
       end
 
       def initialize(bundle, cache_control: DEFAULT_CACHE_CONTROL)
-        raise ArgumentError, "IspeakLLM: not a version 1 bundle" unless bundle.is_a?(Hash) && bundle["version"] == 1 && bundle["files"].is_a?(Hash)
+        raise ArgumentError, "iSpeakLLM: not a version 1 bundle" unless bundle.is_a?(Hash) && bundle["version"] == 1 && bundle["files"].is_a?(Hash)
 
         @bundle = bundle
         @cache_control = cache_control

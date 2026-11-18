@@ -1,4 +1,4 @@
-// New for IspeakLLM: CIDR matching, forward-confirmed rDNS, registry, salted IP hash.
+// New for iSpeakLLM: CIDR matching, forward-confirmed rDNS, registry, salted IP hash.
 import { describe, expect, it } from "vitest";
 import {
   KNOWN_AGENTS,

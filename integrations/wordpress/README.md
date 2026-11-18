@@ -1,6 +1,6 @@
-# IspeakLLM for WordPress
+# iSpeakLLM for WordPress
 
-A WordPress plugin that serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files (`robots.txt`, `ai.txt`, `license.xml`, `.well-known/tdmrep.json`, `.well-known/jwks.json`) and per-path policy headers. Human HTML is never changed beyond `Vary`, `Link` and policy headers.
+A WordPress plugin that serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files (`robots.txt`, `ai.txt`, `license.xml`, `.well-known/tdmrep.json`, `.well-known/jwks.json`) and per-path policy headers. Human HTML is never changed beyond `Vary`, `Link` and policy headers.
 
 No Composer dependencies. Licence: MIT.
 
@@ -9,7 +9,7 @@ Ported from the dormant GoPlainly WordPress plugin; the hosted-API proxy was rep
 ## Install
 
 1. Copy this folder to `wp-content/plugins/ispeakllm/` (it needs `ispeakllm.php` and `core/`).
-2. Activate **IspeakLLM** in Plugins.
+2. Activate **iSpeakLLM** in Plugins.
 3. Put the bundle where the plugin can read it.
 
 ## Configure the bundle path

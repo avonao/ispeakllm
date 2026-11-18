@@ -51,7 +51,7 @@ export function handleRpc(corpus: McpCorpus, msg: Rpc): unknown | null {
   const { id, method, params } = msg;
   if (id === undefined) return null; // notification
   switch (method) {
-    case "initialize": return ok(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: { name: `${corpus.siteName} (IspeakLLM)`, version: "0.1.0" }, instructions: "Read-only access to this site's published content. Answers come only from published pages." });
+    case "initialize": return ok(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: { name: `${corpus.siteName} (iSpeakLLM)`, version: "0.1.0" }, instructions: "Read-only access to this site's published content. Answers come only from published pages." });
     case "ping": return ok(id, {});
     case "tools/list": return ok(id, { tools: TOOLS });
     case "tools/call": {
@@ -94,5 +94,5 @@ export function createMcpHandler(corpus: McpCorpus | (() => Promise<McpCorpus> |
 
 /** /.well-known/mcp/server-card.json content. */
 export function serverCard(corpus: McpCorpus, endpoint: string) {
-  return { name: `${corpus.siteName} (IspeakLLM)`, version: "0.1.0", protocolVersion: PROTOCOL_VERSION, transport: { type: "streamable-http", url: endpoint }, tools: TOOLS.map((t) => ({ name: t.name, description: t.description })), readOnly: true };
+  return { name: `${corpus.siteName} (iSpeakLLM)`, version: "0.1.0", protocolVersion: PROTOCOL_VERSION, transport: { type: "streamable-http", url: endpoint }, tools: TOOLS.map((t) => ({ name: t.name, description: t.description })), readOnly: true };
 }

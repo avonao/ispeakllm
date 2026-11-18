@@ -1,4 +1,4 @@
-// New for IspeakLLM. The "signal calendar": when each vendor has said it will
+// New for iSpeakLLM. The "signal calendar": when each vendor has said it will
 // honour the `__usage_ai-training` robots token. Data as stated in the research
 // notes (02-research.md, 3.3), 10 Nov 2026. It records what vendors announced,
 // not what any crawler is observed to do.

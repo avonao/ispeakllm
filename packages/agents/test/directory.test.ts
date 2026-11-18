@@ -1,4 +1,4 @@
-// New for IspeakLLM: Signature-Agent directory discovery bounds.
+// New for iSpeakLLM: Signature-Agent directory discovery bounds.
 import { describe, expect, it } from "vitest";
 import {
   KeyResolutionError,

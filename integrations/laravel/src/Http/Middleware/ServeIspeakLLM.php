@@ -12,7 +12,7 @@ use IspeakLLM\Core\BundleServer;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Global middleware: answers agent requests from the IspeakLLM bundle, and adds
+ * Global middleware: answers agent requests from the iSpeakLLM bundle, and adds
  * `Vary: Accept`, `Link` and policy headers to the app's HTML responses.
  */
 final class ServeIspeakLLM

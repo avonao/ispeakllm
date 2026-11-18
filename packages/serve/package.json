@@ -1,7 +1,7 @@
 {
   "name": "@ispeakllm/serve",
   "version": "0.1.0",
-  "description": "IspeakLLM request handler shared by every adapter: negotiation, Markdown, ACM, policy, MCP, graded fetch log",
+  "description": "iSpeakLLM request handler shared by every adapter: negotiation, Markdown, ACM, policy, MCP, graded fetch log",
   "license": "MIT",
   "type": "module",
   "main": "./src/index.ts",

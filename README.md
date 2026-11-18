@@ -1,8 +1,8 @@
-# IspeakLLM
+<h1><img src="docs/assets/ispeakllm-logo.avif" alt="iSpeakLLM" width="380"></h1>
 
 Make any website easy for AI agents to read, from your own content, on any host. MIT licensed.
 
-IspeakLLM builds on the [llms.txt](https://llmstxt.org/) standard. From a folder of Markdown it generates
+iSpeakLLM builds on the [llms.txt](https://llmstxt.org/) standard. From a folder of Markdown it generates
 everything an agent looks for, and it serves that with the same HTTP behaviour on every runtime:
 
 - **`/llms.txt` and `/llms-full.txt`**: the site index and the full text, in llms.txt v2 form.
@@ -93,7 +93,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
 ## What it does not promise
 
-IspeakLLM makes your content easy and unambiguous for agents to read and states your terms. It does not promise
+iSpeakLLM makes your content easy and unambiguous for agents to read and states your terms. It does not promise
 traffic, ranking or citations, and preference signals block nothing. Details: [docs/no-promises.md](docs/no-promises.md).
 
 ## Licence

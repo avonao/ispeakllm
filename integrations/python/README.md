@@ -1,6 +1,6 @@
-# IspeakLLM for Python (WSGI, Django, Flask)
+# iSpeakLLM for Python (WSGI, Django, Flask)
 
-Serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) from any WSGI app with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers.
+Serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) from any WSGI app with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers.
 
 Python standard library only (3.8+); Django and Flask are only needed for their own glue. Licence: MIT.
 

@@ -1,15 +1,15 @@
 <?php
 // Ported from integrations/wordpress/includes/class-goplainly-llmstxt.php (goplainly-v6-2026-11-10-current-dormant)
 /**
- * Plugin Name:       IspeakLLM
- * Description:       Serves your IspeakLLM bundle: llms.txt, llms-full.txt, page Markdown (`.md` and `Accept: text/markdown`), the AI Conformance Manifest, policy files and headers.
+ * Plugin Name:       iSpeakLLM
+ * Description:       Serves your iSpeakLLM bundle: llms.txt, llms-full.txt, page Markdown (`.md` and `Accept: text/markdown`), the AI Conformance Manifest, policy files and headers.
  * Version:           0.1.0
  * Requires PHP:      8.1
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
  * Text Domain:       ispeakllm
  *
- * @package IspeakLLM
+ * @package iSpeakLLM
  */
 
 declare(strict_types=1);

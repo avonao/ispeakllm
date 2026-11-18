@@ -1,4 +1,4 @@
-# IspeakLLM specifications
+# iSpeakLLM specifications
 
 | Spec | What it defines | Schema |
 |---|---|---|

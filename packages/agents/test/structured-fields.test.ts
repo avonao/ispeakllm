@@ -1,4 +1,4 @@
-// New for IspeakLLM: the strict RFC 8941 subset used by RFC 9421.
+// New for iSpeakLLM: the strict RFC 8941 subset used by RFC 9421.
 import { describe, expect, it } from "vitest";
 import {
   SfError,

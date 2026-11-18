@@ -18,7 +18,7 @@ if (!class_exists(BundleServer::class)) {
 
 /**
  * HTTP middleware (runs before the page cache): answers agent requests from the
- * IspeakLLM bundle and adds `Vary: Accept`, `Link` and policy headers to HTML pages.
+ * iSpeakLLM bundle and adds `Vary: Accept`, `Link` and policy headers to HTML pages.
  *
  * Settings (settings.php):
  *   $settings['ispeakllm_bundle'] = '/path/to/.ispeakllm/bundle.json';

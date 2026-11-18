@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- New for the IspeakLLM OSS port (build file not present in goplainly-v6-2026-11-10-current-dormant/integrations/spring) -->
+<!-- New for the iSpeakLLM OSS port (build file not present in goplainly-v6-2026-11-10-current-dormant/integrations/spring) -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -15,8 +15,8 @@
   <groupId>io.github.avonao</groupId>
   <artifactId>ispeakllm-spring</artifactId>
   <version>0.1.0</version>
-  <name>IspeakLLM for Spring Boot</name>
-  <description>Serve an IspeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from a Spring Boot app.</description>
+  <name>iSpeakLLM for Spring Boot</name>
+  <description>Serve an iSpeakLLM bundle (llms.txt, page Markdown, AI Conformance Manifest, policy files and headers) from a Spring Boot app.</description>
 
   <licenses>
     <license>

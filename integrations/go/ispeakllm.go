@@ -1,7 +1,7 @@
 // Ported from integrations/go-middleware/llmstxt.go (goplainly-v6-2026-11-10-current-dormant); behaviour from packages/serve/src/index.ts
 // SPDX-License-Identifier: MIT
 
-// Package ispeakllm serves an IspeakLLM bundle (`ispeakllm generate` writes
+// Package ispeakllm serves an iSpeakLLM bundle (`ispeakllm generate` writes
 // .ispeakllm/bundle.json) as net/http middleware: llms.txt, llms-full.txt, page
 // Markdown (`/x.md` and `Accept: text/markdown`), conditional 304, the AI
 // Conformance Manifest, policy files and per-path policy headers. Human HTML only

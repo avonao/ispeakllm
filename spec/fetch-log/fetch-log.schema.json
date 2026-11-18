@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:ispeakllm:schema:fetch:1",
-  "title": "IspeakLLM fetch record (ispeakllm.fetch/1)",
+  "title": "iSpeakLLM fetch record (ispeakllm.fetch/1)",
   "description": "One line of an NDJSON fetch log: what an agent fetched, the exact bytes' hash, and how far its identity was proven. A raw IP address is never stored.",
   "type": "object",
   "required": ["schema", "fetchId", "url", "contentSha256", "fetchedAtIso", "grade"],

@@ -1,6 +1,6 @@
-# New for the IspeakLLM OSS port: Python port of packages/serve/src/index.ts + packages/core/src/negotiate.ts (no Python source in goplainly-v6-2026-11-10-current-dormant)
+# New for the iSpeakLLM OSS port: Python port of packages/serve/src/index.ts + packages/core/src/negotiate.ts (no Python source in goplainly-v6-2026-11-10-current-dormant)
 # SPDX-License-Identifier: MIT
-"""Framework-independent IspeakLLM bundle server. Python standard library only.
+"""Framework-independent iSpeakLLM bundle server. Python standard library only.
 
 Request:  ``method``, decoded ``path`` (no query) and a dict of lower-case request headers.
 Response: ``(status, [(name, value), ...], body_bytes)`` or ``None`` (let the host app answer).
@@ -140,7 +140,7 @@ def merge_discovery(headers, add):
 class BundleServer(object):
     def __init__(self, bundle, cache_control=DEFAULT_CACHE_CONTROL):
         if not isinstance(bundle, dict) or bundle.get("version") != 1 or not isinstance(bundle.get("files"), dict):
-            raise ValueError("IspeakLLM: not a version 1 bundle")
+            raise ValueError("iSpeakLLM: not a version 1 bundle")
         self.bundle = bundle
         self.cache_control = cache_control
 

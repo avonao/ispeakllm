@@ -1,5 +1,5 @@
 <?php
-// New for the IspeakLLM OSS port (config keys follow goplainly.llmstxt.* used by integrations/laravel/src/Http/Controllers/LlmsTxtController.php, goplainly-v6-2026-11-10-current-dormant)
+// New for the iSpeakLLM OSS port (config keys follow goplainly.llmstxt.* used by integrations/laravel/src/Http/Controllers/LlmsTxtController.php, goplainly-v6-2026-11-10-current-dormant)
 // SPDX-License-Identifier: MIT
 
 return [

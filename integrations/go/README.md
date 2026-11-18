@@ -1,6 +1,6 @@
-# IspeakLLM for Go (net/http)
+# iSpeakLLM for Go (net/http)
 
-`net/http` middleware that serves your IspeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers (added just before the app's headers are written; nothing is buffered).
+`net/http` middleware that serves your iSpeakLLM bundle (`ispeakllm generate` writes `.ispeakllm/bundle.json`) with the same HTTP behaviour as the JS adapters: `llms.txt`, `llms-full.txt`, page Markdown (`/x.md` and `Accept: text/markdown`), conditional `304`, the AI Conformance Manifest, policy files and per-path policy headers. HTML responses only gain `Vary: Accept`, `Link` and policy headers (added just before the app's headers are written; nothing is buffered).
 
 Standard library only. Go 1.21+. Licence: MIT.
 

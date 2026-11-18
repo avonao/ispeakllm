@@ -3,7 +3,7 @@
  * Shopify storefronts are served by Shopify, so files cannot be dropped at the shop's root.
  * An App Proxy forwards `https://{shop}/apps/{subpath}/...` to your app backend. This handler
  * verifies the proxy signature, picks the shop's bundle and answers with the same behaviour as
- * every other IspeakLLM adapter (llms.txt, page Markdown, ACM, policy files).
+ * every other iSpeakLLM adapter (llms.txt, page Markdown, ACM, policy files).
  *
  *   const handle = createShopifyProxyHandler({ secret: env.SHOPIFY_API_SECRET, bundleFor: (shop) => loadBundle(shop) });
  *   // in your app: route /proxy/* -> handle(request)

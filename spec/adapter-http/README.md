@@ -1,6 +1,6 @@
 # Adapter HTTP behaviour v1
 
-What every IspeakLLM adapter does, in any language. The normative test is
+What every iSpeakLLM adapter does, in any language. The normative test is
 [conformance/adapter-http/cases.json](../../conformance/adapter-http/cases.json): an adapter conforms at level
 **core** when it passes every `core` case, and at level **full** when it also passes the MCP cases.
 

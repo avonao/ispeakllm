@@ -1,4 +1,4 @@
-// New for IspeakLLM: the merged identity grade. The invariant under test is that
+// New for iSpeakLLM: the merged identity grade. The invariant under test is that
 // `verified` comes ONLY from a completed signature check, never from a User-Agent or an address.
 import { describe, expect, it } from "vitest";
 import {

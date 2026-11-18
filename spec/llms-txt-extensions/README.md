@@ -1,6 +1,6 @@
 # llms.txt extensions: languages, audience views, context export
 
-IspeakLLM emits plain [llms.txt](https://llmstxt.org/) (H1, `>` summary, optional details, H2 file lists,
+iSpeakLLM emits plain [llms.txt](https://llmstxt.org/) (H1, `>` summary, optional details, H2 file lists,
 `## Optional`). The extensions below stay inside that grammar, so any llms.txt reader still parses the files.
 
 ## 1. Per-page Markdown

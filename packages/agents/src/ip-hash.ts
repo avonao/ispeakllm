@@ -1,4 +1,4 @@
-// New for IspeakLLM. The raw client IP is never stored: the local fetch log
+// New for iSpeakLLM. The raw client IP is never stored: the local fetch log
 // keeps only a salted keyed hash, enough to count "the same client again"
 // within one salt epoch and nothing more.
 

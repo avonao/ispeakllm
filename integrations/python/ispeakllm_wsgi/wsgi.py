@@ -1,4 +1,4 @@
-# New for the IspeakLLM OSS port (no Python source in goplainly-v6-2026-11-10-current-dormant)
+# New for the iSpeakLLM OSS port (no Python source in goplainly-v6-2026-11-10-current-dormant)
 # SPDX-License-Identifier: MIT
 """WSGI middleware: any WSGI app (Flask, Django, Pyramid, Bottle, ...)."""
 
@@ -34,7 +34,7 @@ class IspeakLLMMiddleware(object):
     def __init__(self, app, bundle_path=None, bundle=None, cache_control=DEFAULT_CACHE_CONTROL):
         self.app = app
         if bundle is None and bundle_path is None:
-            raise ValueError("IspeakLLM: pass bundle_path or bundle")
+            raise ValueError("iSpeakLLM: pass bundle_path or bundle")
         self.server = BundleServer(bundle, cache_control) if bundle is not None else BundleServer.from_file(bundle_path, cache_control)
 
     def __call__(self, environ, start_response):

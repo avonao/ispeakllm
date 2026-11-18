@@ -1,4 +1,4 @@
-# New for the IspeakLLM OSS port (no Django source in goplainly-v6-2026-11-10-current-dormant)
+# New for the iSpeakLLM OSS port (no Django source in goplainly-v6-2026-11-10-current-dormant)
 # SPDX-License-Identifier: MIT
 """Django middleware. Add near the top of MIDDLEWARE::
 

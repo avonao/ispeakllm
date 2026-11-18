@@ -1,4 +1,4 @@
-// New for the IspeakLLM OSS port (no auto-configuration in goplainly-v6-2026-11-10-current-dormant/integrations/spring)
+// New for the iSpeakLLM OSS port (no auto-configuration in goplainly-v6-2026-11-10-current-dormant/integrations/spring)
 // SPDX-License-Identifier: MIT
 package io.github.avonao.ispeakllm.spring;
 

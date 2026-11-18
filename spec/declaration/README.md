@@ -4,7 +4,7 @@ A declaration says what a site permits AI systems to do with its content. One de
 
 It is a **statement**, not an enforcement mechanism. Nothing served over HTTP can stop a crawler. The value is that what you said is precise, consistent across formats, and can be shown later.
 
-Status: draft for the IspeakLLM 1.0 line. The reference implementation is `@ispeakllm/policy`. The JSON Schema is [`declaration.schema.json`](./declaration.schema.json). Golden outputs are under `conformance/policy-*`.
+Status: draft for the iSpeakLLM 1.0 line. The reference implementation is `@ispeakllm/policy`. The JSON Schema is [`declaration.schema.json`](./declaration.schema.json). Golden outputs are under `conformance/policy-*`.
 
 ## Model
 

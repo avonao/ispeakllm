@@ -1,8 +1,8 @@
 <?php
-// New for the IspeakLLM OSS port (harness style after integrations/wordpress/tests/LlmsTxtTest.php, goplainly-v6-2026-11-10-current-dormant)
+// New for the iSpeakLLM OSS port (harness style after integrations/wordpress/tests/LlmsTxtTest.php, goplainly-v6-2026-11-10-current-dormant)
 // SPDX-License-Identifier: MIT
 //
-// `php -S` router for the conformance test: the IspeakLLM BundleServer in front of the
+// `php -S` router for the conformance test: the iSpeakLLM BundleServer in front of the
 // reference host app from conformance/adapter-http/cases.json (`host`).
 
 declare(strict_types=1);

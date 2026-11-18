@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:ispeakllm:schema:bundle:1",
-  "title": "IspeakLLM adapter bundle v1",
+  "title": "iSpeakLLM adapter bundle v1",
   "description": "Everything an adapter serves, precomputed by `ispeakllm generate`. Adapters in every language read this one file.",
   "type": "object",
   "required": ["version", "generatedAt", "files", "corpus"],
