@@ -19,9 +19,12 @@
     "conformance": "node conformance/adapter-http/runner.mjs"
   },
   "devDependencies": {
-    "typescript": "^5.6.3",
-    "vitest": "^3.2.4",
     "@types/node": "^22",
-    "esbuild": "^0.28.0"
+    "esbuild": "^0.28.0",
+    "typescript": "^5.6.3",
+    "vitest": "^4.1.12"
+  },
+  "overrides": {
+    "vitest": "$vitest"
   }
 }
